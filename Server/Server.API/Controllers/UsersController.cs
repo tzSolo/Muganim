@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Server.Core.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,23 +10,22 @@ namespace Server.API.Controllers
     {
         // GET: api/<UsersController>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<string> Get()
         {
-            return [new User()];
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public User Get(int id)
+        public string Get(int id)
         {
-            return new User();
+            return "value";
         }
 
         // POST api/<UsersController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
-
         }
 
         // PUT api/<UsersController>/5
