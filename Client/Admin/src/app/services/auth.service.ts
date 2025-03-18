@@ -10,6 +10,6 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   loginAdmin(): Observable<any> {
-    return this.httpClient.post<any>(`${this.Url}/api/login`, {});
+    return this.httpClient.post<any>(`${this.Url}/api/Login`, {});
   }
 }

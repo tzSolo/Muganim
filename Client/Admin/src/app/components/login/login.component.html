@@ -1,5 +1,9 @@
-<form [formGroup]="formGroup">
-    <input formControlName=""/>
-    <input formControlName=""/>
-    <input formControlName=""/>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <span>Name : </span>
+    <input placeholder="name" formControlName="name"/>
+    <span>Email : </span>
+    <input placeholder="email" formControlName="email"/>
+    <span>Password : </span>
+    <input placeholder="password" formControlName="password"/>
+    <button>Log In</button>
 </form>
