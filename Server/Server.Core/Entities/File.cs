@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Server.Core.Entities
 {
-    internal class File
+    public class File
     {
     }
 }
