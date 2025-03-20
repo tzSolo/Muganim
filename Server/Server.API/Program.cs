@@ -1,8 +1,8 @@
+using Server.Core;
 using Server.Core.Repositories;
-using Server.Core.Services;
 using Server.Data;
 using Server.Data.Repositories;
-using Server.Service.Services;
+using Server.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,9 +19,9 @@ builder.Services.AddCors(opt => opt.AddPolicy("myPolicy", policy =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddScoped<IUserService,UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();

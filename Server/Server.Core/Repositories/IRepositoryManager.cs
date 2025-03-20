@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using File = Server.Core.Entities.File;
 
 namespace Server.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IRepositoryManager
     {
-        List<User> GetAll();
-        User GetById(int id);
-        User Add(User user);
-        User Update(int id, User user);
-        void Delete(int id);
+        IRepository<User> Users { get; }
+        IRepository<File> Files { get; }
+        void SaveChangesToDB();
     }
 }
