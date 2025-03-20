@@ -1,4 +1,6 @@
-﻿using Server.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Server.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +9,15 @@ using System.Threading.Tasks;
 
 namespace Server.Data
 {
-    public class DataContext
+    public class DataContext(IConfiguration configuration) : DbContext
     {
-        public List<User> Users { get; set; }
-
-        public DataContext()
+        private readonly IConfiguration _configuration = configuration;
+        public DbSet<User> Users { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            Users =
-                [
-                new User() { Id = 1, Name = "name1", Password = "123456" },
-                new User() { Id = 2, Name = "name2", Password = "852852" }
-                ];
+            var mySqlServerVersionInfo = new MySqlServerVersion(new Version(8, 0, 41));
+
+            optionsBuilder.UseMySql(_configuration["DBConnectionString"], mySqlServerVersionInfo);
         }
     }
 }

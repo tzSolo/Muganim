@@ -15,9 +15,9 @@ namespace Server.API.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public List<User> Get()
         {
-            return _userService.GetAll();
+            return _userService.GetAll().ToList();
         }
 
         // GET api/<UsersController>/5

@@ -22,7 +22,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddSingleton<DataContext>();
+builder.Services.AddDbContext<DataContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

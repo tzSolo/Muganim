@@ -11,9 +11,9 @@ namespace Server.Data.Repositories
     public class UserRepository(DataContext dataContext) : IUserRepository
     {
         private readonly DataContext _dataContext = dataContext;
-        public IEnumerable<User> GetAll()
+        public List<User> GetAll()
         {
-            return _dataContext.Users;
+            return _dataContext.Users.ToList();
         }
         public User GetById(int id)
         {
@@ -22,10 +22,12 @@ namespace Server.Data.Repositories
         public User Add(User user)
         {
             _dataContext.Users.Add(user);
+            _dataContext.SaveChanges();
             return new User();
         }
         public User Update(int id, User user)
         {
+            _dataContext.Users.Update(user);
             return new User();
         }
         public void Delete(int id)

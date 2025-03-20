@@ -12,6 +12,7 @@ namespace Server.API.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
     }
 }
