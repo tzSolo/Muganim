@@ -22,6 +22,21 @@ namespace Server.Data.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("FileUser", b =>
+                {
+                    b.Property<int>("FilesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FilesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("FileUser");
+                });
+
             modelBuilder.Entity("Server.Core.Entities.File", b =>
                 {
                     b.Property<int>("Id")
@@ -47,9 +62,6 @@ namespace Server.Data.Migrations
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -97,6 +109,21 @@ namespace Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("FileUser", b =>
+                {
+                    b.HasOne("Server.Core.Entities.File", null)
+                        .WithMany()
+                        .HasForeignKey("FilesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Server.Core.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

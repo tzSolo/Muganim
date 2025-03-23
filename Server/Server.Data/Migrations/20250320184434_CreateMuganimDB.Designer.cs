@@ -12,8 +12,8 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250320171932_AddFilesTable")]
-    partial class AddFilesTable
+    [Migration("20250320184434_CreateMuganimDB")]
+    partial class CreateMuganimDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,9 +50,6 @@ namespace Server.Data.Migrations
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
