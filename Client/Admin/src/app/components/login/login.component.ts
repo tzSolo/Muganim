@@ -18,7 +18,11 @@ export class LoginComponent {
       password: ['', Validators.required]
     })
   }
+
   onSubmit() {
-    this.authService.loginAdmin()
+    this.authService.loginAdmin(this.formGroup.value).subscribe({
+      next: response => console.log(response),
+      error: error => console.error('There was an error!', error)
+    });
   }
 }

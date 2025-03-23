@@ -1,9 +1,12 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <span>Name : </span>
-    <input placeholder="name" formControlName="name"/>
+    <input placeholder="chavi" formControlName="name" />
+
     <span>Email : </span>
-    <input placeholder="email" formControlName="email"/>
+    <input placeholder="ch12345@gmail.com" formControlName="email" />
+
     <span>Password : </span>
-    <input placeholder="password" formControlName="password"/>
-    <button>Log In</button>
+    <input placeholder="123123" formControlName="password" />
+
+    <button [disabled]="formGroup.invalid">Log In</button>
 </form>
