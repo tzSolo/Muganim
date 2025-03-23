@@ -34,10 +34,9 @@ app.MapOpenApi();
 app.UseSwagger();
 app.UseSwaggerUI();
 //}
+app.UseCors("myPolicy");
 
 app.UseHttpsRedirection();
-
-app.UseCors("myPolicy");
 
 app.UseAuthorization();
 
