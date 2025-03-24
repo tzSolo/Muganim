@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Core.Entities
+namespace Server.Core.DTOs
 {
-    public class Permission
+    public class PermissionDto
     {
         public int Id { get; set; }
         public string PermissionName { get; set; }

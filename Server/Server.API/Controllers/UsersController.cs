@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Server.API.Models;
 using Server.Core;
+using Server.Core.DTOs;
 using Server.Core.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,43 +11,79 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IService<User> userService) : ControllerBase
+    public class UsersController(IService<User> userService, IMapper mapper) : ControllerBase
     {
         private readonly IService<User> _userService = userService;
+        private readonly IMapper _mapper = mapper;
 
         // GET: api/<UsersController>
         [HttpGet]
-        public List<User> Get()
+        public ActionResult Get()
         {
-            return _userService.GetAllEntities().ToList();
+            try
+            {
+                var usersList = _userService.GetAllEntities().ToList();
+                return Ok(_mapper.Map<IEnumerable<UserDto>>(usersList));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("An error occurred while processing your request.");
+            }
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public User Get(int id)
+        public ActionResult Get(int id)
         {
-            return _userService.GetEntityById(id);
+            var user = _userService.GetEntityById(id);
+            if (user == null)
+                return NotFound();
+            return Ok(_mapper.Map<UserDto>(user));
         }
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] User user)
+        public ActionResult Post([FromBody] UserPost user)
         {
-            _userService.AddEntity(user);
+            var newUser = new User()
+            {
+                Name = user.Name,
+                Password = user.Password,
+                Email = user.Email,
+                RoleId = user.RoleId,
+                CreatedAt = DateTime.Now,
+                CreatedBy = 1,//לעדכן לפי המשתמש המחובר כרגע
+                UpdatedAt = DateTime.Now,
+                UpdatedBy = 1,//לעדכן לפי המשתמש המחובר כרגע
+            };
+            if (_userService.AddEntity(newUser) == null)
+                return BadRequest("The data sent was invalid.");
+            return Ok(_mapper.Map<UserDto>(newUser));
         }
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] User user)
+        public ActionResult Put(int id, [FromBody] User user)
         {
-            _userService.UpdateEntity(id, user);
+            var updatedUser = new User() { Name = user.Name, Password = user.Password, Email = user.Email, CreatedAt = DateTime.Now };
+            if (_userService.UpdateEntity(id, updatedUser) == null)
+                return BadRequest("The data sent was invalid.");
+            return Ok(_mapper.Map<UserDto>(updatedUser));
         }
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _userService.DeleteEntity(id);
+            try
+            {
+                _userService.DeleteEntity(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("An error occurred while processing your request.");
+            }
         }
     }
 }

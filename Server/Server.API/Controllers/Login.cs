@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Server.Core.Entities;
+using Server.API.Models;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,7 +12,7 @@ namespace Server.API.Controllers
     {
         // POST api/<Login>
         [HttpPost]
-        public ActionResult Post([FromBody] LoginUser user)
+        public ActionResult Post([FromBody] UserPost user)
         {
             return Ok(user);
         }
