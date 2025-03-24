@@ -12,7 +12,7 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250320184434_CreateMuganimDB")]
+    [Migration("20250324161611_CreateMuganimDB")]
     partial class CreateMuganimDB
     {
         /// <inheritdoc />
@@ -36,9 +36,8 @@ namespace Server.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -47,9 +46,8 @@ namespace Server.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("UpdatedBy")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -63,10 +61,6 @@ namespace Server.Data.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccessPermissions")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
