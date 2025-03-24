@@ -4,7 +4,7 @@ export class User {
         public name: string,
         public password: string,
         public email: string,
-        public accessPermissions: string,
+        public RoleId: number,
         public createdAt: Date,
         public createdBy: string,
         public updatedAt: Date,
