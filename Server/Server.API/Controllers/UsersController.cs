@@ -42,7 +42,7 @@ namespace Server.API.Controllers
         }
 
         // POST api/<UsersController>
-        [HttpPost]
+        [HttpPost("register")]
         public ActionResult Post([FromBody] UserPost user)
         {
             var userMap = _mapper.Map<User>(user);
