@@ -1,3 +1,4 @@
+using Server.API;
 using Server.Core;
 using Server.Core.Repositories;
 using Server.Data;
@@ -26,6 +27,7 @@ builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(Mapping));
 
 var app = builder.Build();
 

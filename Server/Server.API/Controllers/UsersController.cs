@@ -45,28 +45,20 @@ namespace Server.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] UserPost user)
         {
-            var newUser = new User()
-            {
-                Name = user.Name,
-                Password = user.Password,
-                Email = user.Email,
-                RoleId = user.RoleId,
-                CreatedAt = DateTime.Now,
-                CreatedBy = 1,//לעדכן לפי המשתמש המחובר כרגע
-                UpdatedAt = DateTime.Now,
-                UpdatedBy = 1,//לעדכן לפי המשתמש המחובר כרגע
-            };
-            if (_userService.AddEntity(newUser) == null)
+            var userMap = _mapper.Map<User>(user);
+            var newUser = _userService.AddEntity(userMap);
+            if (newUser == null)
                 return BadRequest("The data sent was invalid.");
             return Ok(_mapper.Map<UserDto>(newUser));
         }
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] User user)
+        public ActionResult Put(int id, [FromBody] UserPost user)
         {
-            var updatedUser = new User() { Name = user.Name, Password = user.Password, Email = user.Email, CreatedAt = DateTime.Now };
-            if (_userService.UpdateEntity(id, updatedUser) == null)
+            var userMap = _mapper.Map<User>(user);
+            var updatedUser = _userService.UpdateEntity(id, userMap);
+            if (updatedUser == null)
                 return BadRequest("The data sent was invalid.");
             return Ok(_mapper.Map<UserDto>(updatedUser));
         }
