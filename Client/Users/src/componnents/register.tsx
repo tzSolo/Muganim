@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { apiContext } from "./api-context";
 import { User } from "../models/user";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -6,8 +6,18 @@ import { Outlet, useNavigate } from "react-router-dom";
 //קומפוננטה שרושמת משתמש חדש למערכת
 const Register = () => {
     const { url } = useContext(apiContext);
-
+    const [rolesList, setRolesList] = useState<any[]>([]);
     const navigate = useNavigate();
+
+    const getListOfRoles = async () => {
+        try {
+            const rolesData = await fetch(`${url}/api/Roles`);
+            const roles = await rolesData.json();
+            setRolesList(roles);
+        } catch (error) {
+            console.error('Error fetching roles:', error);
+        }
+    }
 
     const registerNewUser = async (user: User) => {
         try {
@@ -28,36 +38,40 @@ const Register = () => {
         }
     };
 
-    type ChangedField = { field: "name", value: string } | { field: "email", value: string } | { field: "password", value: string } | { field: "roleId", value: string };
+    type ChangedField = { field: "name" | "email" | "password" | "roleId", value: string };
 
-    const changeUserDetails = (user: User, changed: ChangedField) => {
-        switch (changed.field) {
-            case "name":
-                return { ...user, name: changed.value }
-            case "email":
-                return { ...user, email: changed.value }
-            case "password":
-                return { ...user, password: changed.value }
-            default:
-                return { ...user, roleId: parseInt(changed.value) }
+    const changeUserDetails = (user: User, changed: ChangedField): User => {
+        if (changed.field == "roleId") {
+            rolesList.map(role => {
+                if (role.name == changed.value)
+                    changed.value = role.id
+            })
         }
+        return { ...user, [changed.field]: changed.value }
     };
 
     const initialUser: User = {
-        name: "chavi",
-        email: "ch@gmail.com",
-        password: "123456",
-        roleId: 2
+        name: "",
+        email: "",
+        password: "",
+        roleId: 0
     };
+
+    useEffect(() => {
+        getListOfRoles();
+    }, []);
 
     const [user, dispatchToUser] = useReducer(changeUserDetails, initialUser);
     return <>
         <input onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
         <input onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
         <input onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
-        <input onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
+        <input list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
+        <datalist id="roles">
+            {rolesList.map((role) => <option key={role.id} value={role.name} />)}
+        </datalist>
         <button onClick={() => registerNewUser(user)}>Register me</button>
-        
+
         <Outlet />
     </>
 }
