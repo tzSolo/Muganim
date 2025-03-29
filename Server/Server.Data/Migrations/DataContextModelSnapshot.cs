@@ -84,7 +84,7 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PermissionName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -122,7 +122,7 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("RoleName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 

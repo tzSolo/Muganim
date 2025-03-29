@@ -12,7 +12,7 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250324194115_CreateMuganimDB")]
+    [Migration("20250329195345_CreateMuganimDB")]
     partial class CreateMuganimDB
     {
         /// <inheritdoc />
@@ -87,7 +87,7 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PermissionName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -104,7 +104,7 @@ namespace Server.Data.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Permission");
+                    b.ToTable("Permissions");
                 });
 
             modelBuilder.Entity("Server.Core.Entities.Role", b =>
@@ -125,7 +125,7 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("RoleName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -137,7 +137,7 @@ namespace Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Server.Core.Entities.User", b =>

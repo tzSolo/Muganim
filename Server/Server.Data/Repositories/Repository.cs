@@ -22,7 +22,7 @@ namespace Server.Data.Repositories
         }
         public IEnumerable<T> GetAll()
         {
-            return _dbSet.ToList();
+            return _dbSet;
         }
         public T? GetById(int id)
         {
