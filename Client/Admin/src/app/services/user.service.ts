@@ -21,15 +21,15 @@ export class UserService {
     return this.httpClient.get<User>(this.Url + id);
   }
 
-  addUser(user: UserPost): Observable<User>  {
-    return this.httpClient.post<User>(this.Url, user);
+  addUser(user: UserPost): Observable<User> {
+    return this.httpClient.post<User>(`${this.Url}/register`, user);
   }
 
-  updateUserById(id: number, user: User): Observable<User>  {
+  updateUserById(id: number, user: User): Observable<User> {
     return this.httpClient.put<User>(this.Url + id, user);
   }
 
-  daleteUserById(id: number):Observable<any> {
+  daleteUserById(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.Url + id);
   }
 }
