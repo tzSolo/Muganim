@@ -52,6 +52,7 @@ namespace Server.API.Controllers
         public ActionResult Put(int id, [FromBody] FilePost file)
         {
             var fileMap = _mapper.Map<File>(file);
+            fileMap.Id = id;
             var updatedFile = _fileService.UpdateEntity(id, fileMap);
             return Ok(_mapper.Map<FileDto>(updatedFile));
         }

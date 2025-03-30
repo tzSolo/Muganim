@@ -53,6 +53,7 @@ namespace Server.API.Controllers
         public ActionResult Put(int id, [FromBody] PermissionPost permission)
         {
             var permissionMap = _mapper.Map<Permission>(permission);
+            permissionMap.Id = id;
             var updatedPermission = _permissionService.UpdateEntity(id, permissionMap);
             return Ok(_mapper.Map<Permission>(updatedPermission));
         }

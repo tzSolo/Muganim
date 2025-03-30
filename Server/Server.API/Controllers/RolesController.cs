@@ -52,6 +52,7 @@ namespace Server.API.Controllers
         public ActionResult Put(int id, [FromBody] RolePost role)
         {
             var roleMap = _mapper.Map<Role>(role);
+            roleMap.Id = id;
             var updatedRole = _roleService.UpdateEntity(id, roleMap);
             return Ok(_mapper.Map<RoleDto>(updatedRole));
         }

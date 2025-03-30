@@ -1,71 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\server\\server.core\\entities\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\entities\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\server\\server.core\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05DE\u05D5\u05E6\u05D0\u05D9 \u05E9\u05D1\u05EA\\Server\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250329195345_CreateMuganimDB.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs",
-              "RelativeDocumentMoniker": "Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs",
-              "RelativeToolTip": "Server.Data\\Migrations\\20250329195345_CreateMuganimDB.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T19:53:45.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Role.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Core\\Entities\\Role.cs",
-              "RelativeDocumentMoniker": "Server.Core\\Entities\\Role.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Core\\Entities\\Role.cs",
-              "RelativeToolTip": "Server.Core\\Entities\\Role.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T19:50:51.029Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Permission.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Core\\Entities\\Permission.cs",
-              "RelativeDocumentMoniker": "Server.Core\\Entities\\Permission.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\Muganim - \u05D1\u05D2\u05E8\u05E1\u05EA \u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9 \u05D0\u05D7\u05E8 \u05D4\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD\\Server\\Server.Core\\Entities\\Permission.cs",
-              "RelativeToolTip": "Server.Core\\Entities\\Permission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T19:50:40.296Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -57,6 +57,7 @@ namespace Server.API.Controllers
         public ActionResult Put(int id, [FromBody] UserPost user)
         {
             var userMap = _mapper.Map<User>(user);
+            userMap.Id = id;
             var updatedUser = _userService.UpdateEntity(id, userMap);
             if (updatedUser == null)
                 return BadRequest("The data sent was invalid.");
