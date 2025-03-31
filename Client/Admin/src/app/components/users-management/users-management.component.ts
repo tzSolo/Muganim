@@ -13,6 +13,7 @@ import { AddUserComponent } from "../add-user/add-user.component";
 export class UsersManagementComponent implements OnInit {
   users: User[];
   showNewUserForm = false;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -22,11 +23,26 @@ export class UsersManagementComponent implements OnInit {
     });
   }
 
-  addUser() {
-
+  addUser(user: any) {
+    this.userService.addUser(user).subscribe({
+      next: () => {
+        this.showNewUserForm = false;
+      },
+      error: (error) => {
+        console.error("can't register new user ", error)
+      }
+    });
   }
 
   openNewUserForm() {
     this.showNewUserForm = true;
+  }
+
+  editUser(user: User) {
+    const userToEdit = this.users.find((u) => u.id === user);
+    const x = [1,2,3,1,2,3].find((u) => u === 3);
+    console.log(userToEdit,x)
+    if (userToEdit)
+      userToEdit.canBeEdit = true;
   }
 }

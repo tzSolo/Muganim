@@ -5,6 +5,7 @@ export class User {
         public password: string,
         public email: string,
         public roleId: number,
+        public canBeEdit: boolean,
         public createdAt: Date,
         public createdBy: string,
         public updatedAt: Date,

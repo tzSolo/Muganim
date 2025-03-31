@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="addNewUser()">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <label for="name">Name : </label>
     <input id="name" formControlName="name" />
 
@@ -11,5 +11,5 @@
     <label for="roleId">RoleId : </label>
     <input id="roleId" formControlName="roleId" />
 
-    <button [disabled]="formGroup.invalid">Add</button>
+    <ng-content></ng-content>
 </form>

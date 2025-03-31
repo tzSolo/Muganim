@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-user',
@@ -9,9 +9,10 @@ import { UserService } from '../../services/user.service';
   styleUrl: './add-user.component.css'
 })
 export class AddUserComponent {
+  @Output() onUserAdd: EventEmitter<any> = new EventEmitter<any>();
   formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -20,10 +21,7 @@ export class AddUserComponent {
     });
   }
 
-  onSubmit() {
-    this.userService.addUser(this.formGroup.value).
-      subscribe(
-        (response) => console.log(response)
-      );
+  addNewUser() {
+    this.onUserAdd.emit(this.formGroup.value);
   }
 }

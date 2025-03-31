@@ -1,25 +1,18 @@
-<!-- 
-+----+----------------+---------------------+--------+---------------------+
-| ID | Username       | Email               | Role   | Date Registered     |
-+----+----------------+---------------------+--------+---------------------+
-| 1  | admin_user     | admin@example.com   | admin  | 2023-01-01          |
-| 2  | regular_user1  | user1@example.com   | user   | 2023-02-15          |
-| 3  | regular_user2  | user2@example.com   | user   | 2023-03-10          |
-+----+----------------+---------------------+--------+---------------------+ 
--->
 <div>
     <p>
         <span>ID </span>
-        <span>Username </span>
+        <span>User Name </span>
         <span>Email </span>
         <span>Date Registered </span>
     </p>
     @for(user of users;track user.id){
     <p>
-        <span>{{user.id}} </span>
-        <span>{{user.name}} </span>
-        <span>{{user.email}} </span>
-        <span>{{user.createdAt|date:'dd/MM/yy'}} </span>
+        <input [value]="user.id" [disabled]="!user.canBeEdit" />
+        <input [value]="user.name" [disabled]="!user.canBeEdit" />
+        <input [value]="user.email" [disabled]="!user.canBeEdit" />
+        <input [value]="user.createdAt|date:'dd/MM/yyyy'" [disabled]="!user.canBeEdit" />
+        <button (click)="editUser(user)">Edit</button>
+        <button>Delete</button>
     </p>
     }
 </div>
@@ -28,6 +21,6 @@
     <button (click)="openNewUserForm()">Add User</button>
     }
     @else {
-    <app-add-user></app-add-user>
+    <app-add-user (onUserAdd)="addUser($event)"></app-add-user>
     }
 </div>
