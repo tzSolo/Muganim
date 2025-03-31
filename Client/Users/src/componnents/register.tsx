@@ -5,9 +5,9 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 //קומפוננטה שרושמת משתמש חדש למערכת
 const Register = () => {
+    const navigate = useNavigate();
     const { url } = useContext(apiContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
-    const navigate = useNavigate();
 
     const getListOfRoles = async () => {
         try {
@@ -44,7 +44,7 @@ const Register = () => {
         if (changed.field == "roleId") {
             rolesList.map(role => {
                 if (role.name == changed.value)
-                    changed.value = role.id
+                    changed.value = role.id;
             })
         }
         return { ...user, [changed.field]: changed.value }
@@ -54,7 +54,7 @@ const Register = () => {
         name: "",
         email: "",
         password: "",
-        roleId: 0
+        roleId: ""
     };
 
     useEffect(() => {
@@ -63,12 +63,16 @@ const Register = () => {
 
     const [user, dispatchToUser] = useReducer(changeUserDetails, initialUser);
     return <>
-        <input onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
-        <input onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
-        <input onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
-        <input list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
+        <input placeholder="Name" onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
+        <input placeholder="Email" onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
+        <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
+        <input placeholder="Role" list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
         <datalist id="roles">
-            {rolesList.map((role) => <option key={role.id} value={role.name} />)}
+            {
+                rolesList.map((role) => (
+                    <option key={role.id} value={role.name} />
+                ))
+            }
         </datalist>
         <button onClick={() => registerNewUser(user)}>Register me</button>
 
