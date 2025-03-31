@@ -6,7 +6,7 @@ p {
     margin: 0;
 }
 
-input,span {
+span {
     display: inline-block;
     width: 220px;
     border: 1px solid black;

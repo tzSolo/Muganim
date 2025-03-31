@@ -3,14 +3,14 @@
         <span>ID </span>
         <span>User Name </span>
         <span>Email </span>
-        <span>Date Registered </span>
+        <span>Last Update </span>
     </p>
     @for(user of users;track user.id){
     <p>
-        <input [value]="user.id" disabled />
-        <input [value]="user.name" [disabled]="!user.canBeEdit" />
-        <input [value]="user.email" [disabled]="!user.canBeEdit" />
-        <input [value]="user.createdAt|date:'dd/MM/yyyy'" disabled />
+        <span>{{user.id}}</span>
+        <span>{{user.name}}</span>
+        <span>{{user.email}}</span>
+        <span>{{user.updatedAt|date:'dd/MM/yyyy'}}</span>
         <button (click)="editUser(user.id)">Edit</button>
         <button (click)="deleteUser(user.id)">Delete</button>
     </p>
@@ -22,5 +22,13 @@
     }
     @else {
     <app-add-user (onUserAdd)="addUser($event)"></app-add-user>
+    }
+</div>
+<div>
+    @if(userToEdit)
+    {
+    <app-user-details [user]="userToEdit" (onUserUpdate)="saveEditedUser($event)">
+        <button>Edit User</button>
+    </app-user-details>
     }
 </div>

@@ -26,7 +26,7 @@ export class UserService {
   }
 
   updateUserById(id: number, user: User): Observable<User> {
-    return this.httpClient.put<User>(this.Url + id, user);
+    return this.httpClient.put<User>(`${this.Url}/${id}`, user);
   }
 
   daleteUserById(id: number): Observable<any> {
