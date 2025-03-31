@@ -38,11 +38,16 @@ export class UsersManagementComponent implements OnInit {
     this.showNewUserForm = true;
   }
 
-  editUser(user: User) {
-    const userToEdit = this.users.find((u) => u.id === user);
-    const x = [1,2,3,1,2,3].find((u) => u === 3);
-    console.log(userToEdit,x)
+  editUser(id: number) {
+    const userToEdit = this.users.find((u) => u.id === id);
     if (userToEdit)
       userToEdit.canBeEdit = true;
+  }
+  
+  deleteUser(id: number) {
+    this.userService.daleteUserById(id).subscribe({
+      next: () => console.log("user deleted succesfully"),
+      error: (err) => console.error(err)
+    })
   }
 }

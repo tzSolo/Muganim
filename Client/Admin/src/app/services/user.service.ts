@@ -30,6 +30,6 @@ export class UserService {
   }
 
   daleteUserById(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.Url + id);
+    return this.httpClient.delete<any>(`${this.Url}/${id}`);
   }
 }

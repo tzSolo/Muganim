@@ -7,12 +7,12 @@
     </p>
     @for(user of users;track user.id){
     <p>
-        <input [value]="user.id" [disabled]="!user.canBeEdit" />
+        <input [value]="user.id" disabled />
         <input [value]="user.name" [disabled]="!user.canBeEdit" />
         <input [value]="user.email" [disabled]="!user.canBeEdit" />
-        <input [value]="user.createdAt|date:'dd/MM/yyyy'" [disabled]="!user.canBeEdit" />
-        <button (click)="editUser(user)">Edit</button>
-        <button>Delete</button>
+        <input [value]="user.createdAt|date:'dd/MM/yyyy'" disabled />
+        <button (click)="editUser(user.id)">Edit</button>
+        <button (click)="deleteUser(user.id)">Delete</button>
     </p>
     }
 </div>
