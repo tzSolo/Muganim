@@ -16,26 +16,27 @@ export class UsersManagementComponent implements OnInit {
   users: User[];
   showNewUserForm = false;
   userToEdit: User | undefined;
+
   constructor(private userService: UserService) { }
 
-  ngOnInit() {
+  getAllUsersData() {
     this.userService.getAllUsers().subscribe({
-      next: (data) => this.users = data,
+      next: (data) => {
+        this.users = data;
+      },
       error: (error) => console.error("can't get the users ", error)
     });
+  }
+
+  ngOnInit() {
+    this.getAllUsersData();
   }
 
   addUser(user: any) {
     this.userService.addUser(user).subscribe({
       next: () => {
         this.showNewUserForm = false;
-        //לדאוג שלא יחזור  כמה פעמים
-        this.userService.getAllUsers().subscribe({
-          next: (data) => {
-            this.users = data;
-          },
-          error: (error) => console.error("can't get the users ", error)
-        });
+        this.getAllUsersData();
       },
       error: (error) => {
         console.error("can't register new user ", error)
@@ -61,13 +62,7 @@ export class UsersManagementComponent implements OnInit {
           next: () => {
             console.log("user updated succesfully");
             this.userToEdit = undefined;
-            //לדאוג שלא יחזור  כמה פעמים
-            this.userService.getAllUsers().subscribe({
-              next: (data) => {
-                this.users = data;
-              },
-              error: (error) => console.error("can't get the users ", error)
-            });
+            this.getAllUsersData();
           },
           error: (err) => console.error(err)
         })
@@ -78,13 +73,7 @@ export class UsersManagementComponent implements OnInit {
     this.userService.daleteUserById(id).subscribe({
       next: () => {
         console.log("user deleted succesfully")
-        //לדאוג שלא יחזור  כמה פעמים
-        this.userService.getAllUsers().subscribe({
-          next: (data) => {
-            this.users = data;
-          },
-          error: (error) => console.error("can't get the users ", error)
-        });
+        this.getAllUsersData();
       },
       error: (err) => console.error(err)
     })
