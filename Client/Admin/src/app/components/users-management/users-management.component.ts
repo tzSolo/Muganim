@@ -4,10 +4,11 @@ import { User } from '../../models/user.dto';
 import { DatePipe } from '@angular/common';
 import { AddUserComponent } from "../add-user/add-user.component";
 import { UserDetailsComponent } from "../user-details/user-details.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users-management',
-  imports: [DatePipe, AddUserComponent, UserDetailsComponent],
+  imports: [DatePipe, AddUserComponent, UserDetailsComponent, RouterLink],
   templateUrl: './users-management.component.html',
   styleUrl: './users-management.component.css'
 })
@@ -28,6 +29,13 @@ export class UsersManagementComponent implements OnInit {
     this.userService.addUser(user).subscribe({
       next: () => {
         this.showNewUserForm = false;
+        //לדאוג שלא יחזור  כמה פעמים
+        this.userService.getAllUsers().subscribe({
+          next: (data) => {
+            this.users = data;
+          },
+          error: (error) => console.error("can't get the users ", error)
+        });
       },
       error: (error) => {
         console.error("can't register new user ", error)
@@ -53,6 +61,13 @@ export class UsersManagementComponent implements OnInit {
           next: () => {
             console.log("user updated succesfully");
             this.userToEdit = undefined;
+            //לדאוג שלא יחזור  כמה פעמים
+            this.userService.getAllUsers().subscribe({
+              next: (data) => {
+                this.users = data;
+              },
+              error: (error) => console.error("can't get the users ", error)
+            });
           },
           error: (err) => console.error(err)
         })
@@ -61,7 +76,16 @@ export class UsersManagementComponent implements OnInit {
 
   deleteUser(id: number) {
     this.userService.daleteUserById(id).subscribe({
-      next: () => console.log("user deleted succesfully"),
+      next: () => {
+        console.log("user deleted succesfully")
+        //לדאוג שלא יחזור  כמה פעמים
+        this.userService.getAllUsers().subscribe({
+          next: (data) => {
+            this.users = data;
+          },
+          error: (error) => console.error("can't get the users ", error)
+        });
+      },
       error: (err) => console.error(err)
     })
   }
