@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { UsersManagementComponent } from "../users-management/users-management.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { UsersManagementComponent } from "../users-management/users-management.c
 export class LoginComponent {
   public formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private router:Router, private formBuilder: FormBuilder, private authService: AuthService) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -24,6 +24,7 @@ export class LoginComponent {
     this.authService.loginAdmin(this.formGroup.value).subscribe({
       next: response => {
         console.log(response);
+        this.router.navigate(["/workspace"])
       },
       error: error => console.error('There was an error!', error)
     });
