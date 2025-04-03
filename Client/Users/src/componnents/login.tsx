@@ -1,25 +1,47 @@
 import axios from "axios";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { apiContext } from "./api-context";
+import { useNavigate } from "react-router-dom";
 
 //קומפוננטה שמטפלת בכניסה של משתמש רשום למערכת
 const Login = () => {
     const { url } = useContext(apiContext);
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-    const loginUser = (userDetails: { email: string, password: string }) => {
+    useEffect(() => {
+        setIsButtonDisabled(!email || !password);
+    }, [email, password]);
+
+    const loginUser = () => {
+        const userDetails = { email, password };
         console.log(userDetails);
         axios.post(`${url}/api/Login`, userDetails)
-            .then()//אם הצלחנו - כניסה - כלומר ניתוב למסך הבא
+            .then(() => navigate("/my-workspace"))
             .catch((err) => console.error("login failed ", err));
     }
 
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
-
-    return <>
-        <input ref={emailRef} placeholder="Email" />
-        <input ref={passwordRef} placeholder="Password" />
-        <button onClick={() => loginUser({ email: emailRef.current?.value ?? "", password: passwordRef.current?.value ?? "" })}>login</button>
-    </>
+    return (
+        <>
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={({ target }) => setEmail(target.value)}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
+            />
+            <button disabled={isButtonDisabled} onClick={loginUser}>
+                Login
+            </button>
+        </>
+    );
 }
+
 export default Login;

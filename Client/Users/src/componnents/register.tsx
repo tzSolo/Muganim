@@ -8,6 +8,7 @@ const Register = () => {
     const navigate = useNavigate();
     const { url } = useContext(apiContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const getListOfRoles = async () => {
         try {
@@ -47,6 +48,8 @@ const Register = () => {
                     changed.value = role.id;
             })
         }
+        if (user.name != "" && user.email != "" && user.password != "" && user.roleId != "")
+            setIsButtonDisabled(false)
         return { ...user, [changed.field]: changed.value }
     };
 
@@ -65,7 +68,6 @@ const Register = () => {
     return <>
         <input placeholder="Name" onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
         <input placeholder="Email" onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
-        <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
         <input placeholder="Role" list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
         <datalist id="roles">
             {
@@ -74,7 +76,8 @@ const Register = () => {
                 ))
             }
         </datalist>
-        <button onClick={() => registerNewUser(user)}>Register me</button>
+        <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
+        <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
 
         <Outlet />
     </>
