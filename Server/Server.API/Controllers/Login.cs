@@ -12,7 +12,7 @@ namespace Server.API.Controllers
     {
         // POST api/<Login>
         [HttpPost]
-        public ActionResult Post([FromBody] UserPost user)
+        public ActionResult Post([FromBody] Object user)
         {
             return Ok(user);
         }
