@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --first-color: #d99d19;
+    --second-color: white;
+    --third-color: rgb(6, 91, 115);
+}
+
+body {
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}

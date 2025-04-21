@@ -1,12 +1,20 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <span>Name : </span>
-    <input placeholder="chavi" formControlName="name" />
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div>
+            <span>Name : </span>
+            <input placeholder="chavi" formControlName="name" />
+        </div>
 
-    <span>Email : </span>
-    <input placeholder="ch12345@gmail.com" formControlName="email" />
+        <div>
+            <span>Email : </span>
+            <input placeholder="ch12345@gmail.com" formControlName="email" />
+        </div>
 
-    <span>Password : </span>
-    <input placeholder="123123" formControlName="password" />
+        <div>
+            <span>Password : </span>
+            <input placeholder="123123" formControlName="password" />
+        </div>
 
-    <button [disabled]="formGroup.invalid">Log In</button>
-</form>
+        <button [disabled]="formGroup.invalid">Log In</button>
+    </form>
+</div>
