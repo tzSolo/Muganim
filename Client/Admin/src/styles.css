@@ -4,6 +4,10 @@
     --third-color: rgb(6, 91, 115);
 }
 
+::selection {
+    background-color: #d99c1990;
+}
+
 body {
     margin: 0;
 }
@@ -12,4 +16,11 @@ body {
     display: flex;
     width: fit-content;
     margin: 0 auto;
+}
+
+button{
+    background-color: var(--third-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--first-color);
 }

@@ -2,7 +2,10 @@ form {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 320px;
+    border: 2px solid var(--third-color);
+    padding:15px 25px;
+    align-items: center;
 }
 
 form *{
@@ -10,10 +13,14 @@ form *{
 }
 
 form div {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: var(--third-color);
 }
 
 form div input{
     width: 65%;
+    border: 1px solid var(--third-color);
 }
