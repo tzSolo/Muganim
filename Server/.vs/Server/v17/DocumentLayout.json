@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9888DC15-F5A7-48D7-AC0A-1CA5FEF9FABE}|Server.Service\\Server.Service.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9888DC15-F5A7-48D7-AC0A-1CA5FEF9FABE}|Server.Service\\Server.Service.csproj|solutionrelative:server.service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Server.API\\Controllers\\AuthController.cs",
@@ -43,7 +39,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Service\\AuthService.cs",
               "RelativeDocumentMoniker": "Server.Service\\AuthService.cs",
@@ -56,26 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\appsettings.json",
-              "RelativeDocumentMoniker": "Server.API\\appsettings.json",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\appsettings.json",
-              "RelativeToolTip": "Server.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-24T15:54:44.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Program.cs",
               "RelativeDocumentMoniker": "Server.API\\Program.cs",
               "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Program.cs",
               "RelativeToolTip": "Server.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAADoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-20T18:48:27.962Z",
               "EditorCaption": ""
