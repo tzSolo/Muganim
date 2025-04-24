@@ -12,22 +12,22 @@ namespace Server.API.Controllers
         private readonly AuthService _authService = authService;
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel model)
+        public IActionResult Login([FromBody] UserLoginModel model)
         {
             // כאן יש לבדוק את שם המשתמש והסיסמה מול מסד הנתונים
-            if (model.UserName == "admin" && model.Password == "admin123")
+            if (model.Name == "admin" && model.Password == "admin123")
             {
-                var token = _authService.GenerateJwtToken(model.UserName, new[] { "Admin" });
+                var token = _authService.GenerateJwtToken(model.Name, new[] { "Admin" });
                 return Ok(new { Token = token });
             }
-            else if (model.UserName == "editor" && model.Password == "editor123")
+            else if (model.Name == "editor" && model.Password == "editor123")
             {
-                var token = _authService.GenerateJwtToken(model.UserName, new[] { "Editor" });
+                var token = _authService.GenerateJwtToken(model.Name, new[] { "Editor" });
                 return Ok(new { Token = token });
             }
-            else if (model.UserName == "viewer" && model.Password == "viewer123")
+            else if (model.Name == "viewer" && model.Password == "viewer123")
             {
-                var token = _authService.GenerateJwtToken(model.UserName, new[] { "Viewer" });
+                var token = _authService.GenerateJwtToken(model.Name, new[] { "Viewer" });
                 return Ok(new { Token = token });
             }
 
@@ -35,9 +35,9 @@ namespace Server.API.Controllers
         }
     }
 
-    public class LoginModel
+    public class UserLoginModel
     {
-        public string UserName { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
     }
 }

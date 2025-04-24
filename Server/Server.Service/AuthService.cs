@@ -7,17 +7,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
+using Server.Core.Entities;
 
 namespace Server.Service
 { 
-    public class AuthService
+    public class AuthService(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
-
-        public AuthService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        private readonly IConfiguration _configuration = configuration;
 
         public string GenerateJwtToken(string username, string[] roles)
         {

@@ -54,6 +54,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddDbContext<DataContext>();
 
