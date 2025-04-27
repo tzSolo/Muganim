@@ -9,7 +9,7 @@ using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Server.Core.Entities;
 
-namespace Server.Service
+namespace Server.Service.Services
 { 
     public class AuthService(IConfiguration configuration)
     {

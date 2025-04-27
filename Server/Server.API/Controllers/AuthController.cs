@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Server.Core;
 using Server.Core.Entities;
-using Server.Service;
+using Server.Service.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,22 +9,21 @@ namespace Server.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController(AuthService authService, IService<User> userService) : ControllerBase
+    public class AuthController(AuthService authService, IUserService userService, IService<Role> roleService) : ControllerBase
     {
         private readonly AuthService _authService = authService;
-        private readonly IService<User> _userService = userService;
+        private readonly IUserService _userService = userService;
+        private readonly IService<Role> _roleService = roleService;
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginModel user)
         {
-            //אפשר לעשות את זה פשוט יותר כנראה שיעשה את הסינון כבר מול ה דטה בייס
-            var existUser = _userService.GetAllEntities().FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
+            var existUser = _userService.GetByEmailAndPassword(user.Email, user.Password);
 
             if (existUser != null)
             {
-                var token = _authService.GenerateJwtToken(user.Email, ["123"]);
-                //זאת השורה שאמורה להופיע לאחר הוספת ה include לuserService
-                //var token = _authService.GenerateJwtToken(user.Email, [existUser.Role.Name]);
+                var role = _roleService.GetEntityById(existUser.RoleId);
+                var token = _authService.GenerateJwtToken(user.Email, [role.Name]);
                 return Ok(new { Token = token });
             }
 

@@ -3,10 +3,10 @@ using Server.Core;
 using Server.Core.Repositories;
 using Server.Data;
 using Server.Data.Repositories;
-using Server.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Server.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,8 +53,10 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddDbContext<DataContext>();
 

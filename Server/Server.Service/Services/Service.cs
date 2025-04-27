@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Service
+namespace Server.Service.Services
 {
     public class Service<T>(IRepository<T> repository, IRepositoryManager repositoryManager) : IService<T> where T : class
     {

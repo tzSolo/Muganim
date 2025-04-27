@@ -10,7 +10,7 @@ namespace Server.Data.Repositories
 {
     public class Repository<T>(DataContext context) : IRepository<T> where T : class
     {
-        private readonly DbSet<T> _dbSet = context.Set<T>();
+        protected readonly DbSet<T> _dbSet = context.Set<T>();
         public T Add(T entity)
         {
             _dbSet.Add(entity);

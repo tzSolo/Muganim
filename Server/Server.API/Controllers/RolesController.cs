@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Server.Core.Entities;
-using Server.Core;
 using Server.Core.DTOs;
 using AutoMapper;
 using Server.API.Models;
+using Server.Core;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
