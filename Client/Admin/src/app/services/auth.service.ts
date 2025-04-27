@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   // private readonly Url = 'https://server-muganim.onrender.com/api/Login';
-  private readonly Url = 'http://localhost:5208/api/Login';
+  private readonly Url = 'http://localhost:5208/api/Auth/login';
 
   constructor(private httpClient: HttpClient) { }
 

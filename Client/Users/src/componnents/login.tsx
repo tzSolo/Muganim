@@ -18,7 +18,7 @@ const Login = () => {
     const loginUser = () => {
         const userDetails = { email, password };
         console.log(userDetails);
-        axios.post(`${url}/api/Login`, userDetails)
+        axios.post(`${url}/api/Auth/login`, userDetails)
             .then(() => navigate("/my-workspace"))
             .catch((err) => console.error("login failed ", err));
     }
