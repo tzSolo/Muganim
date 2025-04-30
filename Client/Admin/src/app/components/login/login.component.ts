@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   public formGroup: FormGroup;
 
-  constructor(private router:Router, private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
     this.formGroup = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -22,10 +22,10 @@ export class LoginComponent {
   onSubmit() {
     this.authService.loginAdmin(this.formGroup.value).subscribe({
       next: response => {
-        console.log(response);
+        sessionStorage.setItem("token", response.token)
         this.router.navigate(["/workspace"])
       },
-      error: error => console.error('There was an error!', error)
+      error: error => console.error('An error occurred!', error)
     });
   }
 }

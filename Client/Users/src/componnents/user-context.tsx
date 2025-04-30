@@ -8,10 +8,12 @@ type User = {
     CreatedAt: Date,
     CreatedBy: string,
     UpdatedAt: Date | null,
-    UpdatedBy: string | null
+    UpdatedBy: string | null,
 };
 type FullUser = {
     user: User,
+    state: string
+    setState: Function,
     setUser: Function
 };
 
@@ -21,22 +23,24 @@ const initalUser: User = {
     Password: "password",
     Email: "user1@gmail.com",
     AccessPermissions: "",
-    CreatedAt: new Date(2025, 1, 1),
+    CreatedAt: new Date(),
     CreatedBy: "tzivi",
-    UpdatedAt: null,
-    UpdatedBy: null
+    UpdatedAt: new Date(),
+    UpdatedBy: "tzivi"
 };
 const initalFullUser: FullUser = {
     user: initalUser,
+    state: "not logged in",
+    setState: () => { },
     setUser: () => { }
 };
 
 export const userContext = createContext<FullUser>(initalFullUser);
 
-const UserProvider = ({ children }: { children: ReactElement }) => {
+const UserProvider = ({ children }: { children: ReactElement[] }) => {
     const [user, setUser] = useState<User>(initalUser);
-
-    return <userContext.Provider value={{ user, setUser }}>
+    const [state, setState] = useState<"logged in" | "not logged in">("not logged in");
+    return <userContext.Provider value={{ user, state, setState, setUser }}>
         {children}
     </userContext.Provider>
 }

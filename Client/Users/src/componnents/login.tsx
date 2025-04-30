@@ -2,10 +2,12 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { apiContext } from "./api-context";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "./user-context";
 
 //קומפוננטה שמטפלת בכניסה של משתמש רשום למערכת
 const Login = () => {
     const { url } = useContext(apiContext);
+    const { setState } = useContext(userContext);
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,9 +19,12 @@ const Login = () => {
 
     const loginUser = () => {
         const userDetails = { email, password };
-        console.log(userDetails);
         axios.post(`${url}/api/Auth/login`, userDetails)
-            .then(() => navigate("/my-workspace"))
+            .then(({ data }) => {
+                sessionStorage.setItem("token", data.token);
+                setState("logged in");
+                navigate("/home");    
+            })
             .catch((err) => console.error("login failed ", err));
     }
 

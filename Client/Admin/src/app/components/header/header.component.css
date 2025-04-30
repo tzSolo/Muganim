@@ -1,0 +1,25 @@
+nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    font-size: 30px;
+}
+
+nav ul li {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 1px solid var(--second-color);
+    background-color: var(--first-color);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    transition: all .2s;
+}
+
+nav ul li a:hover {
+    color: var(--third-color);
+}

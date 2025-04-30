@@ -9,32 +9,11 @@ header {
 header div {
     font-size: 40px;
     transform: rotate(-10deg);
-    background: linear-gradient(15deg,white,#d99d19); 
+    background: linear-gradient(15deg, white, #d99d19);
     background-clip: text;
     color: transparent;
 }
 
-header nav {
+header app-header {
     width: 30%;
-}
-
-header nav ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding: 0;
-    font-size: 30px;
-}
-
-header nav ul li {
-    padding: 10px 25px;
-    border-radius: 10px;
-    border: 1px solid var(--second-color);
-    background-color: var(--first-color);
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: black;
 }

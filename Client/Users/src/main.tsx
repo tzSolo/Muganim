@@ -7,6 +7,7 @@ import App from './App.tsx'
 import MyWorkspace from './componnents/my-workspace.tsx'
 import MyFiles from './componnents/my-files.tsx'
 import Another from './componnents/another.tsx'
+import Home from './componnents/home.tsx'
 
 const allRoutes = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const allRoutes = createBrowserRouter([
       {
         path: "register",
         element: <Register />
+      },
+      {
+        path: "home",
+        element: <Home />
       },
       {
         path: "my-workspace",

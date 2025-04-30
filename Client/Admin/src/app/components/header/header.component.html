@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <!-- כשהמשתמש מתחבר -->
+      
+        <li>
+            <a routerLink="/">home</a>
+        </li>
+        @if(false){
+        <li>
+            <a routerLink="/login">login</a>
+        </li>}
+        @else {
+            <li>
+                <a routerLink="/manage-users">manage users</a>
+            </li>
+        }
+    </ul>
+</nav>

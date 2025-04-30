@@ -1,14 +1,15 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Header from './componnents/header';
+import UserProvider from './componnents/user-context';
 
 function App() {
   return <>
-    <Link to={"/login"}>Log In</Link>
-    <span> | </span>
-    <Link to={"/register"}>Register</Link>
-    <br />
-    <Outlet />
+    <UserProvider>
+      <Header />
+      <Outlet />
+    </UserProvider>
   </>
 }
 
-export default App
+export default App;
