@@ -2,6 +2,7 @@
     --first-color: #d99d19;
     --second-color: white;
     --third-color: rgb(6, 91, 115);
+    font-family: "Calibri";
 }
 
 ::selection {
