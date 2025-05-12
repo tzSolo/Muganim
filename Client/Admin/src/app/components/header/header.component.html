@@ -1,21 +1,21 @@
 <nav>
     <ul>
         <!-- כשהמשתמש מתחבר -->
-      
+
         <li>
-            <a routerLink="/">home</a>
+            <a routerLink="/">Home</a>
         </li>
         @if(false){
         <li>
-            <a routerLink="/login">login</a>
+            <a routerLink="/login">Log In</a>
         </li>}
         @else {
-            <li>
-                <a routerLink="/manage-users">users</a>
-            </li>
-            <li>
-                <a routerLink="/manage-files">files</a>
-            </li>
+        <li>
+            <a routerLink="/manage-users">Users</a>
+        </li>
+        <li>
+            <a routerLink="/manage-files">Files</a>
+        </li>
         }
     </ul>
 </nav>

@@ -4,11 +4,10 @@ import { User } from '../../models/user.dto';
 import { DatePipe } from '@angular/common';
 import { AddUserComponent } from "../add-user/add-user.component";
 import { UserDetailsComponent } from "../user-details/user-details.component";
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users-management',
-  imports: [DatePipe, AddUserComponent, UserDetailsComponent, RouterLink],
+  imports: [DatePipe, AddUserComponent, UserDetailsComponent],
   templateUrl: './users-management.component.html',
   styleUrl: './users-management.component.css'
 })

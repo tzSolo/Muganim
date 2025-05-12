@@ -3,6 +3,7 @@
   --first-color: #d99d19;
   --second-color: white;
   --third-color: rgb(6, 91, 115);
+  font-family: "Calibri";
 }
 
 ::selection {
@@ -38,7 +39,7 @@ header {
 }
 
 header div {
-  font-size: 40px;
+  font-size: 30px;
   transform: rotate(-10deg);
   background: linear-gradient(15deg, white, #d99d19);
   background-clip: text;
@@ -59,7 +60,7 @@ header nav ul {
 }
 
 header nav ul li {
-  padding: 10px 25px;
+  padding: 8px 20px;
   border-radius: 10px;
   border: 1px solid var(--second-color);
   background-color: var(--first-color);
