@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Server.Service.Services;
+using Server.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,12 +32,10 @@ builder.Services.AddAuthentication(options =>
     });
 
 // הוספת הרשאות מבוססות-תפקידים
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("EditorOrAdmin", policy => policy.RequireRole("Editor", "Admin"));
-    options.AddPolicy("ViewerOnly", policy => policy.RequireRole("Viewer"));
-});
+builder.Services.AddAuthorizationBuilder()
+           .AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"))
+           .AddPolicy("EditorOrAdmin", policy => policy.RequireRole("Editor", "Admin"))
+           .AddPolicy("ViewerOnly", policy => policy.RequireRole("Viewer"));
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -57,6 +56,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IEncryptService, EncryptService>();
 
 builder.Services.AddDbContext<DataContext>();
 

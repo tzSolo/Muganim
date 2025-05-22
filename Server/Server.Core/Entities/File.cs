@@ -9,7 +9,7 @@ namespace Server.Core.Entities
     public class File : BaseModel
     {
         public string Name { get; set; }
-        public string FileContent { get; set; }
+        public string Content { get; set; }
         public List<User> SharedWith { get; set; }
     }
 }

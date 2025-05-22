@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Server.API.Models;
 using Server.Core;
 using Server.Core.DTOs;
+using Server.Core.Services;
+using Server.Service.Services;
 using File = Server.Core.Entities.File;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,11 +13,12 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController(IService<File> fileService, IMapper mapper) : ControllerBase
+    public class FilesController(IService<File> fileService, IEncryptService encryptService, IMapper mapper) : ControllerBase
     {
         private readonly IService<File> _fileService = fileService;
+        private readonly IEncryptService _encryptService = encryptService;
         private readonly IMapper _mapper = mapper;
-
+     
         // GET: api/<FilesController>
         [HttpGet]
         public ActionResult Get()
@@ -41,10 +44,14 @@ namespace Server.API.Controllers
         public ActionResult Post([FromBody] FilePost file)
         {
             var fileMap = _mapper.Map<File>(file);
-            var newFile = _fileService.AddEntity(fileMap);
-            if (newFile == null)
-                return BadRequest();
-            return Ok(_mapper.Map<FileDto>(newFile));
+            var fileContent = _encryptService.Encrypt(fileMap.Content);
+            if (fileContent != null)
+            {
+                fileMap.Content = fileContent;
+                var newFile = _fileService.AddEntity(fileMap);                    
+                return Ok(_mapper.Map<FileDto>(newFile));
+            }
+            return BadRequest();
         }
 
         // PUT api/<FilesController>/5

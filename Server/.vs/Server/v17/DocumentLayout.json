@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\aws\\muganim\\server\\server.api\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\controllers\\filescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\aws\\muganim\\server\\server.api\\models\\filepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\models\\filepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\aws\\muganim\\server\\server.core\\dtos\\filedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\dtos\\filedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\aws\\muganim\\server\\server.core\\entities\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\entities\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FilePost.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.API\\Models\\FilePost.cs",
+              "RelativeDocumentMoniker": "Server.API\\Models\\FilePost.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.API\\Models\\FilePost.cs",
+              "RelativeToolTip": "Server.API\\Models\\FilePost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T17:33:32.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "File.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.Core\\Entities\\File.cs",
+              "RelativeDocumentMoniker": "Server.Core\\Entities\\File.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.Core\\Entities\\File.cs",
+              "RelativeToolTip": "Server.Core\\Entities\\File.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T17:32:55.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileDto.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.Core\\DTOs\\FileDto.cs",
+              "RelativeDocumentMoniker": "Server.Core\\DTOs\\FileDto.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.Core\\DTOs\\FileDto.cs",
+              "RelativeToolTip": "Server.Core\\DTOs\\FileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T17:31:51.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FilesController.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.API\\Controllers\\FilesController.cs",
+              "RelativeDocumentMoniker": "Server.API\\Controllers\\FilesController.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\AWS\\Muganim\\Server\\Server.API\\Controllers\\FilesController.cs",
+              "RelativeToolTip": "Server.API\\Controllers\\FilesController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAIA+wC8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T17:04:41.787Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
