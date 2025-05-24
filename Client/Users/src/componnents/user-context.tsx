@@ -1,4 +1,5 @@
 import { createContext, ReactElement, useState } from "react";
+
 type User = {
     Id: number,
     Name: string,
@@ -12,9 +13,13 @@ type User = {
 };
 type FullUser = {
     user: User,
-    state: string
-    setState: Function,
+    userState: UserState
+    setUserState: Function,
     setUser: Function
+};
+type UserState = {
+    state: "logged in" | "not logged in",
+    token?: string
 };
 
 const initalUser: User = {
@@ -30,8 +35,8 @@ const initalUser: User = {
 };
 const initalFullUser: FullUser = {
     user: initalUser,
-    state: "not logged in",
-    setState: () => { },
+    userState: { state: "not logged in" },
+    setUserState: () => { },
     setUser: () => { }
 };
 
@@ -39,8 +44,9 @@ export const userContext = createContext<FullUser>(initalFullUser);
 
 const UserProvider = ({ children }: { children: ReactElement[] }) => {
     const [user, setUser] = useState<User>(initalUser);
-    const [state, setState] = useState<"logged in" | "not logged in">("not logged in");
-    return <userContext.Provider value={{ user, state, setState, setUser }}>
+    const [userState, setUserState] = useState<UserState>({ state: "not logged in" });
+
+    return <userContext.Provider value={{ user, userState, setUserState, setUser }}>
         {children}
     </userContext.Provider>
 }
