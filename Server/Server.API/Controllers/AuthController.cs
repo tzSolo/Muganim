@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Server.Core;
 using Server.Core.Entities;
+using Server.Core.Services;
 using Server.Service.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,9 +10,9 @@ namespace Server.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController(AuthService authService, IUserService userService, IService<Role> roleService) : ControllerBase
+    public class AuthController(IAuthService authService, IUserService userService, IService<Role> roleService) : ControllerBase
     {
-        private readonly AuthService _authService = authService;
+        private readonly IAuthService _authService = authService;
         private readonly IUserService _userService = userService;
         private readonly IService<Role> _roleService = roleService;
 
