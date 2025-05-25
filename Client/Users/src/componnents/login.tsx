@@ -19,10 +19,11 @@ const Login = () => {
 
     const loginUser = () => {
         const userDetails = { email, password };
+
         axios.post(`${url}/api/Auth/login`, userDetails)
             .then(({ data }) => {
                 sessionStorage.setItem("token", data.token);
-                setUserState({ state: "logged in" });
+                setUserState({ state: "logged in", token: data.token });
                 navigate("/home");
             })
             .catch((err) => console.error("login failed ", err));

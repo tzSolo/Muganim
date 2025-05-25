@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { readFile } from "./read-from-file";
 import { apiContext } from "./api-context";
+import { userContext } from "./user-context";
 // import { userContext } from "./user-context";
 
 
 const UploadFileToAWS = () => {
     const [files, setFiles] = useState<FileList | null>(null);
     const { url } = useContext(apiContext);
-    // const { userState } = useContext(userContext);
+    const { userState } = useContext(userContext);
 
     const uploadFile = async () => {
         if (files) {
@@ -19,14 +20,12 @@ const UploadFileToAWS = () => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        // 'Authorization': `Bearer ${userState.token}`
+                        'Authorization': `Bearer ${userState.token}`
                     },
                     body: JSON.stringify({ name, content, sharedWith: [] })
                 });
 
                 const result = await response.json();
-                console.log(result);
-
                 return result;
             }
             catch (error: any) {
