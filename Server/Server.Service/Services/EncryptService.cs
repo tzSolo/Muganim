@@ -34,14 +34,14 @@ namespace Server.Service.Services
             return decryptText;
         }
 
-        public string? Encrypt(string text)
+        public string Encrypt(string text)
         {
             var guidKey = Guid.NewGuid().ToByteArray();
             var guidVI = Guid.NewGuid().ToByteArray();
             return EncryptStringByAes(text, guidKey, guidVI);
         }
 
-        private static string? EncryptStringByAes(string text, byte[] Key, byte[] IV)
+        private static string EncryptStringByAes(string text, byte[] Key, byte[] IV)
         {
             byte[] encrypted;
 

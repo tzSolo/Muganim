@@ -5,6 +5,7 @@ using Server.Core;
 using Server.Core.DTOs;
 using Server.Core.Services;
 using Server.Service.Services;
+using System.Threading.Tasks;
 using File = Server.Core.Entities.File;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,12 +14,13 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController(IService<File> fileService, IEncryptService encryptService, IMapper mapper) : ControllerBase
+    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IMapper mapper) : ControllerBase
     {
         private readonly IService<File> _fileService = fileService;
         private readonly IEncryptService _encryptService = encryptService;
+        private readonly IFileUploadService _uploadService = uploadService;
         private readonly IMapper _mapper = mapper;
-     
+
         // GET: api/<FilesController>
         [HttpGet]
         public ActionResult Get()
@@ -41,17 +43,30 @@ namespace Server.API.Controllers
 
         // POST api/<FilesController>
         [HttpPost]
-        public ActionResult Post([FromBody] FilePost file)
+        public async Task<ActionResult> Post([FromBody] FilePost file)
         {
             var fileMap = _mapper.Map<File>(file);
-            var fileContent = _encryptService.Encrypt(fileMap.Content);
-            if (fileContent != null)
+            var encryptFileContent = _encryptService.Encrypt(fileMap.Content);
+            var encryptFileName = _encryptService.Encrypt(fileMap.Name);
+
+            if (encryptFileContent == null)
             {
-                fileMap.Content = fileContent;
-                var newFile = _fileService.AddEntity(fileMap);                    
+                return BadRequest("File is empty.");
+            }
+
+            fileMap.Name = encryptFileName;
+            fileMap.Content = encryptFileContent;
+            var newFile = _fileService.AddEntity(fileMap);
+
+            try
+            {
+                await _uploadService.UploadFileAsync(newFile);
                 return Ok(_mapper.Map<FileDto>(newFile));
             }
-            return BadRequest();
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<FilesController>/5

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using File = Server.Core.Entities.File;
 
 namespace Server.Core.Services
 {
-    public interface IEncryptService
+    public interface IFileUploadService
     {
-        string Encrypt(string text);
-        string Decrypt(string encryptText);
+        Task<bool> UploadFileAsync(File file);
     }
 }
