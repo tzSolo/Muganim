@@ -1,0 +1,83 @@
+﻿using Amazon.S3;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Server.Core;
+using Server.Core.Repositories;
+using Server.Core.Services;
+using Server.Data;
+using Server.Data.Repositories;
+using Server.Service.Services;
+using System.Text;
+using Amazon.Extensions.NETCore.Setup;
+using Amazon.Runtime;
+using Amazon;
+
+namespace Server.API
+{
+    public class ServiceConfiguration
+    {
+        public static void ConfigureServices(IServiceCollection services,IConfiguration configuration)
+        {
+            // הוספת JWT Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = configuration["JWT:Issuer"],
+                        ValidAudience = configuration["JWT:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"]))
+                    };
+                });
+
+            // הוספת הרשאות מבוססות-תפקידים
+            services.AddAuthorizationBuilder()
+                       .AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"))
+                       .AddPolicy("EditorOrAdmin", policy => policy.RequireRole("Editor", "Admin"))
+                       .AddPolicy("ViewerOnly", policy => policy.RequireRole("Viewer"));
+
+            // Add services to the container.
+            services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+
+            services.AddCors(opt => opt.AddPolicy("myPolicy", policy =>
+            {
+                policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            }));
+
+            services.AddOpenApi();
+
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped(typeof(IService<>), typeof(Service<>));
+            services.AddScoped<AuthService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEncryptService, EncryptService>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
+            services.AddAWSService<IAmazonS3>();
+            services.AddDefaultAWSOptions(new AWSOptions
+            {
+                Credentials = new BasicAWSCredentials(
+                        configuration["AWSDetails:AccessKeyID"],
+                        configuration["AWSDetails:SecretAccessKey"]
+                    ),
+                Region = RegionEndpoint.USEast1
+            });
+
+            services.AddDbContext<DataContext>();
+
+            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddAutoMapper(typeof(Mapping));
+        }
+    }
+}
