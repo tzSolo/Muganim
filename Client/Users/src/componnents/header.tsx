@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import MyWorkspace from "./my-workspace";
 
 const Header = () => {
-    const { state } = useContext(userContext);
+    const { userState } = useContext(userContext);
 
     return <>
         <header>
@@ -18,7 +18,7 @@ const Header = () => {
                 <span>m</span>
             </div>
             <nav>
-                {state === "not logged in" ?
+                {userState.state === "not logged in" ?
                     <ul>
                         <li>
                             <Link to={"/login"}>Log In</Link>
@@ -29,10 +29,10 @@ const Header = () => {
                     </ul>
                     :
                     <ul>
-                        <MyWorkspace/>
+                        <MyWorkspace />
                         <li>
                             <Link to={"/logout"}>Log Out</Link>
-                        </li> 
+                        </li>
                     </ul>
                 }
             </nav>

@@ -7,7 +7,7 @@ import { userContext } from "./user-context";
 //קומפוננטה שמטפלת בכניסה של משתמש רשום למערכת
 const Login = () => {
     const { url } = useContext(apiContext);
-    const { setState } = useContext(userContext);
+    const { setUserState } = useContext(userContext);
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,8 +22,8 @@ const Login = () => {
         axios.post(`${url}/api/Auth/login`, userDetails)
             .then(({ data }) => {
                 sessionStorage.setItem("token", data.token);
-                setState("logged in");
-                navigate("/home");    
+                setUserState({ state: "logged in" });
+                navigate("/home");
             })
             .catch((err) => console.error("login failed ", err));
     }
