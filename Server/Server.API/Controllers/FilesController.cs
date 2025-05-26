@@ -59,8 +59,12 @@ namespace Server.API.Controllers
             fileMap.Name = encryptFileName;
             fileMap.Content = encryptFileContent;
             var newFile = _fileService.AddEntity(fileMap);
-            await _emailService.SendEmailAsync("t0504114734@gmail.com", "Muganim password", $"The password is : {password[0]} + {password[1]}");
 
+            foreach (var user in fileMap.SharedWith)
+            {
+                await _emailService.SendEmailAsync(user.Email, "Muganim password", $"The password is : {password[0]} + {password[1]}");
+            }
+           
             try
             {
                 await _uploadService.UploadFileAsync(newFile);

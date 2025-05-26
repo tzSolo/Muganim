@@ -31,16 +31,21 @@ namespace Server.Data
 
             foreach (var entry in entries)
             {
-                var entity = (BaseModel)entry.Entity;
+                BaseModel entity;
 
-                if (entry.State == EntityState.Added)
+                if (entry.Entity is BaseModel model)
                 {
-                    entity.CreatedAt = DateTime.Now;
-                    entity.CreatedBy = GetLoggedInUserId();
-                }
+                    entity = model;
 
-                entity.UpdatedAt = DateTime.Now;
-                entity.UpdatedBy = GetLoggedInUserId();
+                    if (entry.State == EntityState.Added)
+                    {
+                        entity.CreatedAt = DateTime.Now;
+                        entity.CreatedBy = GetLoggedInUserId();
+                    }
+
+                    entity.UpdatedAt = DateTime.Now;
+                    entity.UpdatedBy = GetLoggedInUserId();
+                }
             }
 
             return base.SaveChanges();
@@ -49,7 +54,7 @@ namespace Server.Data
         private int GetLoggedInUserId()
         {
             //לממש החזרת מזהה משתמש מחובר
-            return 1; 
+            return 1;
         }
     }
 }

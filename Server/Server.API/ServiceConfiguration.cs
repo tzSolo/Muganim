@@ -11,6 +11,7 @@ using System.Text;
 using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon;
+using System.Text.Json.Serialization;
 
 namespace Server.API
 {
@@ -45,7 +46,11 @@ namespace Server.API
                        .AddPolicy("ViewerOnly", policy => policy.RequireRole("Viewer"));
 
             // Add services to the container.
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                options.JsonSerializerOptions.WriteIndented = true;
+            });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
