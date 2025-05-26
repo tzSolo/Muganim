@@ -32,13 +32,15 @@ namespace Server.API.Controllers
 
         // GET api/<FilesController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public ActionResult Get(int id, [FromHeader] Guid password1, [FromHeader] Guid password2)
         {
             var file = _fileService.GetEntityById(id);
             if (file == null)
             {
                 return NotFound();
             }
+            var decryptedFileContent = _encryptService.Decrypt(file.Content, [password1, password2]);
+            file.Content = decryptedFileContent;
             return Ok(_mapper.Map<FileDto>(file));
         }
 
@@ -64,7 +66,7 @@ namespace Server.API.Controllers
             {
                 await _emailService.SendEmailAsync(user.Email, "Muganim password", $"The password is : {password[0]} + {password[1]}");
             }
-           
+
             try
             {
                 await _uploadService.UploadFileAsync(newFile);

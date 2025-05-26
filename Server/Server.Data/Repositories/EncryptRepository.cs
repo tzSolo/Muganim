@@ -23,11 +23,13 @@ namespace Server.Data.Repositories
             aes.IV = IV;
 
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-            byte[] textAsBytesArr = Encoding.UTF8.GetBytes(text);
+            byte[] textAsBytesArr = Convert.FromBase64String(text);
             using MemoryStream msDecrypt = new(textAsBytesArr);
-            using CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read);
-            using StreamReader srDecrypt = new(csDecrypt);
-            decryptText = srDecrypt.ReadToEnd();
+            using (CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read))
+            {
+                using StreamReader srDecrypt = new(csDecrypt);
+                decryptText = srDecrypt.ReadToEnd();
+            }
 
             return decryptText;
         }
@@ -54,7 +56,7 @@ namespace Server.Data.Repositories
             }
 
             encrypted = msEncrypt.ToArray();
-            return Encoding.UTF8.GetString(encrypted);
+            return Convert.ToBase64String(encrypted);
         }
     }
 }
