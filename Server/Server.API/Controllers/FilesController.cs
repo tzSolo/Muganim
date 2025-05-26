@@ -14,11 +14,12 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IMapper mapper) : ControllerBase
+    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IEmailService emailService, IMapper mapper) : ControllerBase
     {
         private readonly IService<File> _fileService = fileService;
         private readonly IEncryptService _encryptService = encryptService;
         private readonly IFileUploadService _uploadService = uploadService;
+        private readonly IEmailService _emailService = emailService;
         private readonly IMapper _mapper = mapper;
 
         // GET: api/<FilesController>
@@ -46,8 +47,9 @@ namespace Server.API.Controllers
         public async Task<ActionResult> Post([FromBody] FilePost file)
         {
             var fileMap = _mapper.Map<File>(file);
-            var encryptFileContent = _encryptService.Encrypt(fileMap.Content);
-            var encryptFileName = _encryptService.Encrypt(fileMap.Name);
+            var password = new Guid[2] { Guid.NewGuid(), Guid.NewGuid() };
+            var encryptFileContent = _encryptService.Encrypt(fileMap.Content, password);
+            var encryptFileName = _encryptService.Encrypt(fileMap.Name, password);
 
             if (encryptFileContent == null)
             {
@@ -57,6 +59,7 @@ namespace Server.API.Controllers
             fileMap.Name = encryptFileName;
             fileMap.Content = encryptFileContent;
             var newFile = _fileService.AddEntity(fileMap);
+            await _emailService.SendEmailAsync("t0504114734@gmail.com", "Muganim password", $"The password is : {password[0]} + {password[1]}");
 
             try
             {

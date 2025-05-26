@@ -1,4 +1,5 @@
-﻿using Server.Core.Services;
+﻿using Server.Core.Repositories;
+using Server.Core.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,57 +10,17 @@ using System.Threading.Tasks;
 
 namespace Server.Service.Services
 {
-    public class EncryptService : IEncryptService
+    public class EncryptService(IEncryptRepository encryptRepository) : IEncryptService
     {
-        public string Decrypt(string encryptedText)
+        private readonly IEncryptRepository _encryptRepository = encryptRepository;
+
+        public string Decrypt(string encryptedText, Guid[] guids)
         {
-            return DecryptStringByAes(encryptedText, new Guid().ToByteArray(), new Guid().ToByteArray());
+            return _encryptRepository.Decrypt(encryptedText, guids);
         }
-
-        private static string DecryptStringByAes(string text, byte[] Key, byte[] IV)
+        public string Encrypt(string text, Guid[] guids)
         {
-            string decryptText;
-
-            using Aes aes = Aes.Create();
-            aes.Key = Key;
-            aes.IV = IV;
-
-            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-            byte[] textAsBytesArr = Encoding.UTF8.GetBytes(text);
-            using MemoryStream msDecrypt = new(textAsBytesArr);
-            using CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read);
-            using StreamReader srDecrypt = new(csDecrypt);
-            decryptText = srDecrypt.ReadToEnd();
-
-            return decryptText;
-        }
-
-        public string Encrypt(string text)
-        {
-            var guidKey = Guid.NewGuid().ToByteArray();
-            var guidVI = Guid.NewGuid().ToByteArray();
-            return EncryptStringByAes(text, guidKey, guidVI);
-        }
-
-        private static string EncryptStringByAes(string text, byte[] Key, byte[] IV)
-        {
-            byte[] encrypted;
-
-            using Aes aes = Aes.Create();
-            aes.Key = Key;
-            aes.IV = IV;
-
-            ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-            using MemoryStream msEncrypt = new();
-            using (CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write))
-            {
-                using StreamWriter swEncrypt = new(csEncrypt);
-                swEncrypt.Write(text);
-            }
-
-            encrypted = msEncrypt.ToArray();
-            return Encoding.UTF8.GetString(encrypted);
+            return _encryptRepository.Encrypt(text, guids);
         }
     }
 }

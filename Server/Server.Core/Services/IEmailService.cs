@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Server.Core.Services
 {
-    public interface IEncryptService
+    public interface IEmailService
     {
-        string Encrypt(string text, Guid[] guids);
-        string Decrypt(string encryptText, Guid[] guids);
+        Task SendEmailAsync(string toEmail, string subject, string body);
     }
 }

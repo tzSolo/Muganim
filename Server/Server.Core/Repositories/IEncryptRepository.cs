@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Core.Services
+namespace Server.Core.Repositories
 {
-    public interface IEncryptService
+    public interface IEncryptRepository
     {
         string Encrypt(string text, Guid[] guids);
-        string Decrypt(string encryptText, Guid[] guids);
+        string Decrypt(string encryptedText, Guid[] guids);
     }
 }
