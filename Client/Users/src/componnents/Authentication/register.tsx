@@ -1,7 +1,7 @@
 import { useContext, useEffect, useReducer, useState } from "react";
-import { apiContext } from "./api-context";
-import { UserPost } from "../models/user.post";
+import { UserPost } from "../../models/user.post";
 import { Outlet, useNavigate } from "react-router-dom";
+import { apiContext } from "../../contexts/api-context";
 
 //קומפוננטה שרושמת משתמש חדש למערכת
 const Register = () => {

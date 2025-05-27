@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { userContext } from "./user-context";
 import { Link } from "react-router-dom";
 import MyWorkspace from "./my-workspace";
+import { userContext } from "../contexts/user-context";
 
 const Header = () => {
     const { userState } = useContext(userContext);

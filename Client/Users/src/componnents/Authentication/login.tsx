@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { apiContext } from "./api-context";
 import { useNavigate } from "react-router-dom";
-import { userContext } from "./user-context";
+import { apiContext } from "../../contexts/api-context";
+import { userContext } from "../../contexts/user-context";
 
 //קומפוננטה שמטפלת בכניסה של משתמש רשום למערכת
 const Login = () => {
