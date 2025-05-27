@@ -11,9 +11,9 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IService<User> userService, IMapper mapper) : ControllerBase
+    public class UsersController(IUserService userService, IMapper mapper) : ControllerBase
     {
-        private readonly IService<User> _userService = userService;
+        private readonly IUserService _userService = userService;
         private readonly IMapper _mapper = mapper;
 
         // GET: api/<UsersController>
@@ -27,7 +27,7 @@ namespace Server.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest("An error occurred while processing your request.");
+                return BadRequest(ex.Message);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Server.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest("An error occurred while processing your request.");
+                return BadRequest(ex.Message);
             }
         }
     }

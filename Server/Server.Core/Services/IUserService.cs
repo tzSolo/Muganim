@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server.Core
 {
-    public interface IUserService
+    public interface IUserService : IService<User>
     {
         User GetByEmailAndPassword(string email, string password);
     }

@@ -12,11 +12,11 @@ namespace Server.Service.Services
     {
         private readonly IRepository<T> _repository = repository;
         private readonly IRepositoryManager _repositoryManager = repositoryManager;
-        public IEnumerable<T> GetAllEntities()
+        public virtual IEnumerable<T> GetAllEntities()
         {
             return _repository.GetAll();
         }
-        public T? GetEntityById(int id)
+        public virtual T? GetEntityById(int id)
         {
             return _repository.GetById(id);
         }

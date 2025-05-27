@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
         User GetByEmailAndPassword(string email, string password);
     }

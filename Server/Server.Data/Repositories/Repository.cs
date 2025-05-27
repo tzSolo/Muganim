@@ -20,11 +20,11 @@ namespace Server.Data.Repositories
         {
             _dbSet.Remove(GetById(id));
         }
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _dbSet;
         }
-        public T? GetById(int id)
+        public virtual T? GetById(int id)
         {
             return _dbSet.Find(id);
         }
