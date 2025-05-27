@@ -1,16 +1,6 @@
 import { createContext, ReactElement, useState } from "react";
+import { User } from "../models/user";
 
-type User = {
-    Id: number,
-    Name: string,
-    Password: string,
-    Email: string,
-    AccessPermissions: string,
-    CreatedAt: Date,
-    CreatedBy: string,
-    UpdatedAt: Date | null,
-    UpdatedBy: string | null,
-};
 type FullUser = {
     user: User,
     userState: UserState
@@ -23,15 +13,16 @@ type UserState = {
 };
 
 const initalUser: User = {
-    Id: 1,
-    Name: "user name",
-    Password: "password",
-    Email: "user1@gmail.com",
-    AccessPermissions: "",
-    CreatedAt: new Date(),
-    CreatedBy: "tzivi",
-    UpdatedAt: new Date(),
-    UpdatedBy: "tzivi"
+    id: 1,
+    name: "user name",
+    password: "password",
+    email: "user1@gmail.com",
+    files: [],
+    accessPermissions: "",
+    createdAt: new Date(),
+    createdBy: "tzivi",
+    updatedAt: new Date(),
+    updatedBy: "tzivi"
 };
 const initalFullUser: FullUser = {
     user: initalUser,

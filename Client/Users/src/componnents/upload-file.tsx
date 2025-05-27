@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { readFile } from "./read-from-file";
 import { apiContext } from "./api-context";
 import { userContext } from "./user-context";
-// import { userContext } from "./user-context";
 
 
 const UploadFileToAWS = () => {

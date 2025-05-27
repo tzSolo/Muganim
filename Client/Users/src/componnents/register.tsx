@@ -1,6 +1,6 @@
 import { useContext, useEffect, useReducer, useState } from "react";
 import { apiContext } from "./api-context";
-import { User } from "../models/user";
+import { UserPost } from "../models/user.post";
 import { Outlet, useNavigate } from "react-router-dom";
 
 //קומפוננטה שרושמת משתמש חדש למערכת
@@ -20,7 +20,7 @@ const Register = () => {
         }
     }
 
-    const registerNewUser = async (user: User) => {
+    const registerNewUser = async (user: UserPost) => {
         try {
             const response = await fetch(`${url}/api/Users/register`, {
                 method: 'POST',
@@ -41,7 +41,7 @@ const Register = () => {
 
     type ChangedField = { field: "name" | "email" | "password" | "roleId", value: string };
 
-    const changeUserDetails = (user: User, changed: ChangedField): User => {
+    const changeUserDetails = (user: UserPost, changed: ChangedField): UserPost => {
         if (changed.field == "roleId") {
             rolesList.map(role => {
                 if (role.name == changed.value)
@@ -53,7 +53,7 @@ const Register = () => {
         return { ...user, [changed.field]: changed.value }
     };
 
-    const initialUser: User = {
+    const initialUser: UserPost = {
         name: "",
         email: "",
         password: "",
