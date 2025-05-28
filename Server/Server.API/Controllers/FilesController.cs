@@ -41,6 +41,9 @@ namespace Server.API.Controllers
             }
             var decryptedFileContent = _encryptService.Decrypt(file.Content, [password1, password2]);
             file.Content = decryptedFileContent;
+
+            var decryptedFileName = _encryptService.Decrypt(file.Name, [password1, password2]);
+            file.Name = decryptedFileName;
             return Ok(_mapper.Map<FileDto>(file));
         }
 
