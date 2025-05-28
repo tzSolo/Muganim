@@ -18,7 +18,7 @@ namespace Server.Data.Repositories
 
         public async Task<bool> UploadFileAsync(File file)
         {
-            var bucketName = _configuration["AWSDetails:S3Bucket"];
+            var bucketName = _configuration["S3Bucket"];
             byte[] fileAsByteArray = Encoding.UTF8.GetBytes(file.Content);
 
             using var stream = new MemoryStream(fileAsByteArray);

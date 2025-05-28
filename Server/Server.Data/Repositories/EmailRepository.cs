@@ -27,7 +27,7 @@ namespace Server.Data.Repositories
 
             using var client = new SmtpClient();
             await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-            await client.AuthenticateAsync(_configuration["Email:MyEmail"], _configuration["Email:Password"]);
+            await client.AuthenticateAsync(_configuration["MyEmail"], _configuration["Password"]);
             await client.SendAsync(message);
             await client.DisconnectAsync(true);
         }

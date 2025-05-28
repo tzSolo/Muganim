@@ -84,8 +84,8 @@ namespace Server.API
             services.AddDefaultAWSOptions(new AWSOptions
             {
                 Credentials = new BasicAWSCredentials(
-                        configuration["AWSDetails:AccessKeyID"],
-                        configuration["AWSDetails:SecretAccessKey"]
+                        configuration["AccessKeyID"],
+                        configuration["SecretAccessKey"]
                     ),
                 Region = RegionEndpoint.USEast1
             });
