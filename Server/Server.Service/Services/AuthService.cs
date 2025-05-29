@@ -14,9 +14,9 @@ namespace Server.Service.Services
     {
         private readonly IAuthRepository _authRepository = authRepository;
 
-        public string GenerateJwtToken(string username, string[] roles)
+        public string GenerateJwtToken(string email, string[] roles)
         {
-            return _authRepository.GenerateJwtToken(username, roles);
+            return _authRepository.GenerateJwtToken(email, roles);
         }
     }
 }

@@ -4,6 +4,7 @@ using Server.API.Models;
 using Server.Core;
 using Server.Core.DTOs;
 using Server.Core.Entities;
+using Server.Core.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,9 +12,11 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IUserService userService, IMapper mapper) : ControllerBase
+    public class UsersController(IUserService userService, IAuthService authService, IService<Role> roleService, IMapper mapper) : ControllerBase
     {
         private readonly IUserService _userService = userService;
+        private readonly IAuthService _authService = authService;
+        private readonly IService<Role> _roleService = roleService;
         private readonly IMapper _mapper = mapper;
 
         // GET: api/<UsersController>
@@ -49,7 +52,11 @@ namespace Server.API.Controllers
             var newUser = _userService.AddEntity(userMap);
             if (newUser == null)
                 return BadRequest("The data sent was invalid.");
-            return Ok(_mapper.Map<UserDto>(newUser));
+
+            var userDto = _mapper.Map<UserDto>(newUser);
+            var role = _roleService.GetEntityById(newUser.RoleId);
+            var token = _authService.GenerateJwtToken(user.Email, [role?.Name]); 
+            return Ok(new { Token = token, User = userDto });
         }
 
         // PUT api/<UsersController>/5
