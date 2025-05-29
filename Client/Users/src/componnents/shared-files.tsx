@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { File } from "../models/File";
 import { userContext } from "../contexts/user-context";
 import { apiContext } from "../contexts/api-context";
+import OriginalFile from "./original-file";
 
 const SharedFiles = () => {
     const { user } = useContext(userContext);
@@ -37,6 +38,7 @@ const SharedFiles = () => {
                 {files.map((file, index) => (
                     <li key={index}>
                         <p>{file.name}</p>
+                        <OriginalFile {...{ fileID: file.id }} />
                     </li>
                 ))}
             </ul>
