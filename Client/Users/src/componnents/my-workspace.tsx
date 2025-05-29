@@ -14,6 +14,9 @@ const MyWorkspace = () => {
         <li>
             <Link to={"/another"}>Another</Link>
         </li>
+        <li>
+            <Link to={"/logout"}>Log Out</Link>
+        </li>
     </>
 }
 export default MyWorkspace;

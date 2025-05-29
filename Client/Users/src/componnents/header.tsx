@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import MyWorkspace from "./my-workspace";
 import { userContext } from "../contexts/user-context";
+import AuthNav from "./auth-nav";
 
 const Header = () => {
     const { userState } = useContext(userContext);
@@ -18,23 +18,9 @@ const Header = () => {
                 <span>m</span>
             </div>
             <nav>
-                {userState.state === "not logged in" ?
-                    <ul>
-                        <li>
-                            <Link to={"/login"}>Log In</Link>
-                        </li>
-                        <li>
-                            <Link to={"/register"}>Register</Link>
-                        </li>
-                    </ul>
-                    :
-                    <ul>
-                        <MyWorkspace />
-                        <li>
-                            <Link to={"/logout"}>Log Out</Link>
-                        </li>
-                    </ul>
-                }
+                <ul>
+                    {userState.state === "not logged in" ? <AuthNav /> : <MyWorkspace />}
+                </ul>
             </nav>
         </header>
     </>

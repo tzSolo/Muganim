@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './componnents/Authentication/login.tsx'
 import Register from './componnents/Authentication/register.tsx'
 import App from './App.tsx'
-import MyWorkspace from './componnents/my-workspace.tsx'
 import MyFiles from './componnents/my-files.tsx'
 import Another from './componnents/another.tsx'
 import Home from './componnents/home.tsx'
+import SharedFiles from './componnents/shared-files.tsx'
 
 const allRoutes = createBrowserRouter([
   {
@@ -27,22 +27,16 @@ const allRoutes = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "my-workspace",
-        element: <MyWorkspace />,
-        children: [
-          {
-            path: "my-files",
-            element: <MyFiles />
-          },
-          {
-            path: "shared-with-me",
-            element: <MyFiles />
-          },
-          {
-            path: "aonther",
-            element: <Another />
-          }
-        ]
+        path: "my-files",
+        element: <MyFiles />
+      },
+      {
+        path: "shared-with-me",
+        element: <SharedFiles />
+      },
+      {
+        path: "aonther",
+        element: <Another />
       }
     ]
   }
