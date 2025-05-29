@@ -1,13 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './componnents/Authentication/login.tsx'
-import Register from './componnents/Authentication/register.tsx'
 import App from './App.tsx'
 import MyFiles from './componnents/my-files.tsx'
 import Another from './componnents/another.tsx'
 import Home from './componnents/home.tsx'
 import SharedFiles from './componnents/shared-files.tsx'
+import Login from './componnents/Authentication/login.tsx'
+import Register from './componnents/Authentication/register.tsx'
+
+
+
 
 const allRoutes = createBrowserRouter([
   {

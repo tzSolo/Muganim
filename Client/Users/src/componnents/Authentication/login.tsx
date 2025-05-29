@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { apiContext } from "../../contexts/api-context";
 import { userContext } from "../../contexts/user-context";
 
-//קומפוננטה שמטפלת בכניסה של משתמש רשום למערכת
 const Login = () => {
     const { url } = useContext(apiContext);
-    const { setUserState } = useContext(userContext);
+    const { setUser, setUserState } = useContext(userContext);
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,6 +22,7 @@ const Login = () => {
         axios.post(`${url}/api/Auth/login`, userDetails)
             .then(({ data }) => {
                 sessionStorage.setItem("token", data.token);
+                setUser(data.user);
                 setUserState({ state: "logged in", token: data.token });
                 navigate("/home");
             })

@@ -2,11 +2,12 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { UserPost } from "../../models/user.post";
 import { Outlet, useNavigate } from "react-router-dom";
 import { apiContext } from "../../contexts/api-context";
+import { userContext } from "../../contexts/user-context";
 
-//קומפוננטה שרושמת משתמש חדש למערכת
 const Register = () => {
     const navigate = useNavigate();
     const { url } = useContext(apiContext);
+        const { setUser, setUserState } = useContext(userContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
@@ -30,9 +31,11 @@ const Register = () => {
                 body: JSON.stringify(user)
             });
             const registeredUserDetails = await response.json();
-            console.log(registeredUserDetails);
-            //שמירת נתוני משתמש שנרשם
-            navigate("/my-workspace");
+            const token = registeredUserDetails.token;
+            sessionStorage.setItem("token", token);
+            setUser(registeredUserDetails.user);
+            setUserState({ state: "logged in", token });
+            navigate("/home");
         }
         catch (error) {
             console.error('Register user failed.', error);
