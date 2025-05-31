@@ -3,11 +3,11 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.tsx'
 import MyFiles from './componnents/my-files.tsx'
-import Another from './componnents/another.tsx'
 import Home from './componnents/home.tsx'
 import SharedFiles from './componnents/shared-files.tsx'
 import Login from './componnents/Authentication/login.tsx'
 import Register from './componnents/Authentication/register.tsx'
+import UploadFileToAWS from './componnents/upload-file.tsx'
 
 
 
@@ -38,8 +38,8 @@ const allRoutes = createBrowserRouter([
         element: <SharedFiles />
       },
       {
-        path: "aonther",
-        element: <Another />
+        path: "upload",
+        element: <UploadFileToAWS />
       }
     ]
   }

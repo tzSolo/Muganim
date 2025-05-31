@@ -12,7 +12,7 @@ const MyWorkspace = () => {
             <Link to={"/shared-with-me"}>Shared files</Link>
         </li>
         <li>
-            <Link to={"/another"}>Another</Link>
+            <Link to={"/upload"}>Upload File</Link>
         </li>
         <li>
             <Link to={"/logout"}>Log Out</Link>
