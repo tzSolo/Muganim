@@ -56,7 +56,7 @@ namespace Server.API.Controllers
 
             var userDto = _mapper.Map<UserDto>(newUser);
             var role = _roleService.GetEntityById(newUser.RoleId);
-            var token = _authService.GenerateJwtToken(user.Email, [role?.Name]); 
+            var token = _authService.GenerateJwtToken(user.Email, [role?.Name], newUser.Id);
             return Ok(new { Token = token, User = userDto });
         }
 

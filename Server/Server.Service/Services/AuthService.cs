@@ -10,13 +10,13 @@ using Server.Core.Services;
 
 namespace Server.Service.Services
 {
-    public class AuthService(IAuthRepository authRepository): IAuthService
+    public class AuthService(IAuthRepository authRepository) : IAuthService
     {
         private readonly IAuthRepository _authRepository = authRepository;
 
-        public string GenerateJwtToken(string email, string[] roles)
+        public string GenerateJwtToken(string email, string[] roles, int id)
         {
-            return _authRepository.GenerateJwtToken(email, roles);
+            return _authRepository.GenerateJwtToken(email, roles, id);
         }
     }
 }

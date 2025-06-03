@@ -8,6 +8,6 @@ namespace Server.Core.Services
 {
     public interface IAuthService
     {
-        string GenerateJwtToken(string email, string[] roles);
+        string GenerateJwtToken(string email, string[] roles,int id);
     }
 }

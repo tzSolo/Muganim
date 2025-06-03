@@ -8,6 +8,6 @@ namespace Server.Core.Repositories
 {
     public interface IAuthRepository
     {
-        string GenerateJwtToken(string email, string[] roles);
+        string GenerateJwtToken(string email, string[] roles, int id);
     }
 }

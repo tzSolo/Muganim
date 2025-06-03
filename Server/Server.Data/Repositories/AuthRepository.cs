@@ -14,14 +14,15 @@ namespace Server.Data.Repositories
     public class AuthRepository(IConfiguration configuration) : IAuthRepository
     {
         private readonly IConfiguration _configuration = configuration;
-        public string GenerateJwtToken(string email, string[] roles)
+        public string GenerateJwtToken(string email, string[] roles, int id)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
         {
-            new(ClaimTypes.Name, email)
+            new(ClaimTypes.Name, email),
+            new(ClaimTypes.NameIdentifier, id.ToString())
         };
 
             // הוספת תפקידים כ-Claims

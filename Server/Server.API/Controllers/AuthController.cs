@@ -24,7 +24,7 @@ namespace Server.API.Controllers
             if (existUser != null)
             {
                 var role = _roleService.GetEntityById(existUser.RoleId);
-                var token = _authService.GenerateJwtToken(user.Email, [role.Name]);
+                var token = _authService.GenerateJwtToken(user.Email, [role.Name],existUser.Id);
                 return Ok(new { Token = token, User = existUser });
             }
 
