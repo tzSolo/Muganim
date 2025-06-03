@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
-import { apiContext } from "../contexts/api-context"
-import { userContext } from "../contexts/user-context";
-import { File } from "../models/File";
+import { apiContext } from "../../contexts/api-context"
+import { userContext } from "../../contexts/user-context";
+import { File } from "../../models/File";
 
 const OriginalFile = ({ fileID }: { fileID: number }) => {
     const [passwords, setPasswords] = useState<string[]>([]);

@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
 import './App.css'
-import Header from './componnents/header/header';
 import APIProvider from './contexts/api-context';
 import UserProvider from './contexts/user-context';
+import Header from './components/header/header';
 
 function App() {
   return <>

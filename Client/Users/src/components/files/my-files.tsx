@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { apiContext } from "../contexts/api-context";
-import { userContext } from "../contexts/user-context";
-import { File } from "../models/File";
+import { apiContext } from "../../contexts/api-context";
+import { userContext } from "../../contexts/user-context";
+import { File } from "../../models/File";
+import FilesList from "./files-list";
 
 const MyFiles = () => {
     const { user } = useContext(userContext);
@@ -31,19 +32,11 @@ const MyFiles = () => {
     }, []);
 
     return <>
-        <h2>Files Created By You</h2>
-        {files.length === 0 ? (
-            <p>No files were created by you.</p>
-        ) : (
-            <ul>
-                {files.map((file, index) => (
-                    <li key={index}>
-                        <p>{file.name}</p>
-                        <p>{file.content}</p>
-                    </li>
-                ))}
-            </ul>
-        )}
+        <FilesList {...{
+            title: "Files Created By You",
+            subTitle: "No files were created by you.",
+            files
+        }} />
     </>
 }
 export default MyFiles;

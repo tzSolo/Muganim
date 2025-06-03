@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { apiContext } from "../contexts/api-context";
-import { userContext } from "../contexts/user-context";
-import { UserPost } from "../models/user.post";
+import { apiContext } from "../../contexts/api-context";
+import { userContext } from "../../contexts/user-context";
+import { UserPost } from "../../models/user.post";
 
 
 const UploadFileToAWS = () => {
