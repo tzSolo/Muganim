@@ -13,6 +13,7 @@ namespace Server.Core.DTOs
         public string Password { get; set; }
         public string Email { get; set; }
         public int RoleId { get; set; }
-        public List<FileDto> Files { get; set; }
+        public List<FileDto> SharedFiles { get; set; }
+        public List<int> Files { get; set; }
     }
 }

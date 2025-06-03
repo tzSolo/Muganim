@@ -24,13 +24,13 @@ namespace Server.Data.Migrations
 
             modelBuilder.Entity("FileUser", b =>
                 {
-                    b.Property<int>("FilesId")
+                    b.Property<int>("SharedFilesId")
                         .HasColumnType("int");
 
                     b.Property<int>("SharedWithId")
                         .HasColumnType("int");
 
-                    b.HasKey("FilesId", "SharedWithId");
+                    b.HasKey("SharedFilesId", "SharedWithId");
 
                     b.HasIndex("SharedWithId");
 
@@ -159,6 +159,9 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.PrimitiveCollection<string>("Files")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -187,7 +190,7 @@ namespace Server.Data.Migrations
                 {
                     b.HasOne("Server.Core.Entities.File", null)
                         .WithMany()
-                        .HasForeignKey("FilesId")
+                        .HasForeignKey("SharedFilesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

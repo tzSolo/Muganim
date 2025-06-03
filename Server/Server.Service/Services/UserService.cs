@@ -21,7 +21,7 @@ namespace Server.Service.Services
 
         public User? GetEntityById(int id)
         {
-            return _repository.GetById(id);
+            return _userRepository.GetById(id);
         }
 
         public User GetByEmailAndPassword(string email, string password)

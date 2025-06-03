@@ -13,6 +13,7 @@ namespace Server.Core.Entities
         public string Email { get; set; }
         public int RoleId { get; set; }
         public Role Role { get; set; }
-        public List<File> Files { get; set; }
+        public List<File> SharedFiles { get; set; }
+        public List<int>? Files { get; set; }
     }
 }

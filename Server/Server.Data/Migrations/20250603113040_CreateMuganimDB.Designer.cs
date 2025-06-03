@@ -12,7 +12,7 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250329195345_CreateMuganimDB")]
+    [Migration("20250603113040_CreateMuganimDB")]
     partial class CreateMuganimDB
     {
         /// <inheritdoc />
@@ -47,6 +47,10 @@ namespace Server.Data.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -168,6 +172,9 @@ namespace Server.Data.Migrations
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
+
+                    b.PrimitiveCollection<string>("SharedFiles")
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");

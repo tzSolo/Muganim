@@ -10,5 +10,7 @@ namespace Server.Core.Repositories
     public interface IUserRepository
     {
         User GetByEmailAndPassword(string email, string password);
+
+        User? GetById(int id);
     }
 }

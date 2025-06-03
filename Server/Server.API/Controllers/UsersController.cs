@@ -12,9 +12,10 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IService<User> userService, IAuthService authService, IService<Role> roleService, IMapper mapper) : ControllerBase
+    public class UsersController(IService<User> userService, IUserService userService2, IAuthService authService, IService<Role> roleService, IMapper mapper) : ControllerBase
     {
         private readonly IService<User> _userService = userService;
+        private readonly IUserService _userService2 = userService2;
         private readonly IAuthService _authService = authService;
         private readonly IService<Role> _roleService = roleService;
         private readonly IMapper _mapper = mapper;
@@ -38,7 +39,7 @@ namespace Server.API.Controllers
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            var user = _userService.GetEntityById(id);
+            var user = _userService2.GetEntityById(id);
             if (user == null)
                 return NotFound();
             return Ok(_mapper.Map<UserDto>(user));

@@ -12,8 +12,8 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250522120056_AddingFileContentToFile")]
-    partial class AddingFileContentToFile
+    [Migration("20250603120032_ChangeFilesAndSharedFilesNames")]
+    partial class ChangeFilesAndSharedFilesNames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,13 @@ namespace Server.Data.Migrations
 
             modelBuilder.Entity("FileUser", b =>
                 {
-                    b.Property<int>("FilesId")
+                    b.Property<int>("SharedFilesId")
                         .HasColumnType("int");
 
                     b.Property<int>("SharedWithId")
                         .HasColumnType("int");
 
-                    b.HasKey("FilesId", "SharedWithId");
+                    b.HasKey("SharedFilesId", "SharedWithId");
 
                     b.HasIndex("SharedWithId");
 
@@ -48,15 +48,15 @@ namespace Server.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
-
-                    b.Property<string>("FileContent")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -162,6 +162,9 @@ namespace Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.PrimitiveCollection<string>("Files")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -190,7 +193,7 @@ namespace Server.Data.Migrations
                 {
                     b.HasOne("Server.Core.Entities.File", null)
                         .WithMany()
-                        .HasForeignKey("FilesId")
+                        .HasForeignKey("SharedFilesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
