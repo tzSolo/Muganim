@@ -1,14 +1,12 @@
 import { useContext, useEffect, useReducer, useState } from "react";
 import { UserPost } from "../../models/user.post";
-import { Outlet, useNavigate } from "react-router-dom";
 import { apiContext } from "../../contexts/api-context";
-import { userContext } from "../../contexts/user-context";
+import { useSaveUserDetails } from "../../hooks/save-user-details";
 
 const Register = () => {
-    const navigate = useNavigate();
     const { url } = useContext(apiContext);
-        const { setUser, setUserState } = useContext(userContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
+    const { saveUserDetails } = useSaveUserDetails();
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const getListOfRoles = async () => {
@@ -21,21 +19,17 @@ const Register = () => {
         }
     }
 
-    const registerNewUser = async (user: UserPost) => {
+    const registerNewUser = async (userPost: UserPost) => {
         try {
             const response = await fetch(`${url}/api/Users/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(userPost)
             });
-            const registeredUserDetails = await response.json();
-            const token = registeredUserDetails.token;
-            sessionStorage.setItem("token", token);
-            setUser(registeredUserDetails.user);
-            setUserState({ state: "logged in", token });
-            navigate("/home");
+            const { token, user } = await response.json();
+            saveUserDetails({ token, user, state: "logged in" });
         }
         catch (error) {
             console.error('Register user failed.', error);
@@ -81,8 +75,6 @@ const Register = () => {
         </datalist>
         <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
         <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
-
-        <Outlet />
     </>
 }
 export default Register;

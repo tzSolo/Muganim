@@ -1,13 +1,10 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { apiContext } from "../../contexts/api-context";
-import { userContext } from "../../contexts/user-context";
+import { useSaveUserDetails } from "../../hooks/save-user-details";
 
 const Login = () => {
     const { url } = useContext(apiContext);
-    const { setUser, setUserState } = useContext(userContext);
-    const navigate = useNavigate();
+    const { saveUserDetails } = useSaveUserDetails();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -16,17 +13,25 @@ const Login = () => {
         setIsButtonDisabled(!email || !password);
     }, [email, password]);
 
-    const loginUser = () => {
+    const loginUser = async () => {
         const userDetails = { email, password };
-
-        axios.post(`${url}/api/Auth/login`, userDetails)
-            .then(({ data }) => {
-                sessionStorage.setItem("token", data.token);
-                setUser(data.user);
-                setUserState({ state: "logged in", token: data.token });
-                navigate("/home");
-            })
-            .catch((err) => console.error("login failed ", err));
+        try {
+            const response = await fetch(`${url}/api/Auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userDetails)
+            });
+            if (!response.ok) {
+                throw new Error(`Error, status code : ${response.status}`);
+            }
+            const { token, user } = await response.json();
+            saveUserDetails({ token, user, state: "logged in" });
+        }
+        catch (err: any) {
+            console.error("login failed ", err);
+        }
     }
 
     return (

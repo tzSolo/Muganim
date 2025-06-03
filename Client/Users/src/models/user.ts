@@ -13,3 +13,17 @@ export interface User {
     updatedAt: Date | null,
     updatedBy: string | null
 };
+
+export const initalUser: User = {
+    id: 1,
+    name: "user name",
+    password: "password",
+    email: "user1@gmail.com",
+    files: [],
+    sharedFiles: [],
+    accessPermissions: "",
+    createdAt: new Date(),
+    createdBy: "tzivi",
+    updatedAt: new Date(),
+    updatedBy: "tzivi"
+};

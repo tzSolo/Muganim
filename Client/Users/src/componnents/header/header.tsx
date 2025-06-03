@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import MyWorkspace from "./my-workspace";
-import { userContext } from "../contexts/user-context";
+import { userContext } from "../../contexts/user-context";
 import AuthNav from "./auth-nav";
 
 const Header = () => {

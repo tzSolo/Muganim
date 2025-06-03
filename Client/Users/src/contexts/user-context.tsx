@@ -1,5 +1,5 @@
 import { createContext, ReactElement, useState } from "react";
-import { User } from "../models/user";
+import { initalUser, User } from "../models/user";
 
 type FullUser = {
     user: User,
@@ -12,18 +12,6 @@ type UserState = {
     token?: string
 };
 
-const initalUser: User = {
-    id: 1,
-    name: "user name",
-    password: "password",
-    email: "user1@gmail.com",
-    files: [],
-    accessPermissions: "",
-    createdAt: new Date(),
-    createdBy: "tzivi",
-    updatedAt: new Date(),
-    updatedBy: "tzivi"
-};
 const initalFullUser: FullUser = {
     user: initalUser,
     userState: { state: "not logged in" },
