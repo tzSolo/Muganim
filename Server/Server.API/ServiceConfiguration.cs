@@ -91,6 +91,7 @@ namespace Server.API
             });
 
             services.AddDbContext<DataContext>();
+            services.AddHttpContextAccessor();
 
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddAutoMapper(typeof(Mapping));

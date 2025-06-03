@@ -1,18 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Server.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using File = Server.Core.Entities.File;
 
 namespace Server.Data
 {
-    public class DataContext(IConfiguration configuration) : DbContext
+    public class DataContext(IConfiguration configuration, IHttpContextAccessor httpContextAccessor) : DbContext
     {
         private readonly IConfiguration _configuration = configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+        
         public DbSet<User> Users { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Permission> Permissions { get; set; }
@@ -53,8 +57,14 @@ namespace Server.Data
 
         private int GetLoggedInUserId()
         {
-            //לממש החזרת מזהה משתמש מחובר
-            return 1;
+            var userIdClaim = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (int.TryParse(userIdClaim, out int userId))
+            {
+                return userId;
+            }
+
+            return 0;
         }
     }
 }
