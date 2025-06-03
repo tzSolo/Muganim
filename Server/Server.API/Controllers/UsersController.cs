@@ -12,9 +12,9 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IUserService userService, IAuthService authService, IService<Role> roleService, IMapper mapper) : ControllerBase
+    public class UsersController(IService<User> userService, IAuthService authService, IService<Role> roleService, IMapper mapper) : ControllerBase
     {
-        private readonly IUserService _userService = userService;
+        private readonly IService<User> _userService = userService;
         private readonly IAuthService _authService = authService;
         private readonly IService<Role> _roleService = roleService;
         private readonly IMapper _mapper = mapper;

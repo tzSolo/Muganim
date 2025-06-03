@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 namespace Server.Service.Services
 {
-    public class UserService(IUserRepository userRepository) : IUserService, IService<User>
+    public class UserService(IUserRepository userRepository, IRepository<User> repository) : IUserService, IService<User>
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly IRepository<User> _repository = repository;
 
         public IEnumerable<User> GetAllEntities()
         {
-            return _userRepository.GetAll();
+            return _repository.GetAll();
         }
 
         public User? GetEntityById(int id)
         {
-            return _userRepository.GetById(id);
+            return _repository.GetById(id);
         }
 
         public User GetByEmailAndPassword(string email, string password)
@@ -30,17 +31,17 @@ namespace Server.Service.Services
 
         public User UpdateEntity(int id, User user)
         {
-            return _userRepository.Update(id, user);
+            return _repository.Update(id, user);
         }
 
         public User AddEntity(User user)
         {
-            return _userRepository.Add(user);
+            return _repository.Add(user);
         }
 
         public void DeleteEntity(int id)
         {
-            _userRepository.Delete(id);
+            _repository.Delete(id);
         }
     }
 }
