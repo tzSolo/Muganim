@@ -37,13 +37,10 @@ header {
   align-items: center;
   padding: 0 20px;
 }
-
-header div {
-  font-size: 30px;
-  transform: rotate(-10deg);
-  background: linear-gradient(15deg, white, #d99d19);
-  background-clip: text;
-  color: transparent;
+ 
+header img {
+  max-width: 90px;
+  border-radius: 50%;
 }
 
 header nav {

@@ -3,6 +3,7 @@ import MyWorkspace from "./my-workspace";
 import { userContext } from "../../contexts/user-context";
 import AuthNav from "./auth-nav";
 import { useNavigate } from "react-router-dom";
+import * as logo from "../../assets/logo.png"
 
 const Header = () => {
     const { userState } = useContext(userContext);
@@ -16,15 +17,7 @@ const Header = () => {
 
     return <>
         <header>
-            <div>
-                <span>M</span>
-                <span>u</span>
-                <span>g</span>
-                <span>a</span>
-                <span>n</span>
-                <span>i</span>
-                <span>m</span>
-            </div>
+            <img src={logo.default} alt="muganim logo" />
             <nav>
                 <ul>
                     {userState.state === "not logged in" ? <AuthNav /> : <MyWorkspace />}
