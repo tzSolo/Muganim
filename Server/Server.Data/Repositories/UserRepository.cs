@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Server.Data.Repositories
 {
-    public class UserRepository(DataContext context) : Repository<User>(context), IUserRepository
+    public class UserRepository(DataContext context, IHttpContextAccessor httpContextAccessor) : Repository<User>(context, httpContextAccessor), IUserRepository
     {
         public User? GetByEmailAndPassword(string email, string password)
         {

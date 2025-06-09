@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.api\\models\\rolepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\models\\rolepost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|solutionrelative:server.data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|solutionrelative:server.data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.core\\repositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\repositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9888DC15-F5A7-48D7-AC0A-1CA5FEF9FABE}|Server.Service\\Server.Service.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9888DC15-F5A7-48D7-AC0A-1CA5FEF9FABE}|Server.Service\\Server.Service.csproj|solutionrelative:server.service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.core\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00329607-E2D0-4E52-910D-540E078129F5}|Server.Core\\Server.Core.csproj|solutionrelative:server.core\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|solutionrelative:server.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73FAD445-E649-4CB6-86BE-617BDCA0B4EA}|Server.Data\\Server.Data.csproj|solutionrelative:server.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|d:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\muganim\\server\\server.api\\serviceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{649C4289-C7E0-4598-9297-61F51BB835CD}|Server.API\\Server.API.csproj|solutionrelative:server.api\\serviceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,114 +26,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RolePost.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Models\\RolePost.cs",
+              "RelativeDocumentMoniker": "Server.API\\Models\\RolePost.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Models\\RolePost.cs",
+              "RelativeToolTip": "Server.API\\Models\\RolePost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T11:11:34.079Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Server.API\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Server.API\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAkwDoAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:30:14.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Server.API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Server.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwBoAAABeAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Server.Data\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Server.Data\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAACOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:29:50.638Z",
+              "WhenOpened": "2025-06-09T11:02:34.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "Server.Data\\Repositories\\AuthRepository.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\AuthRepository.cs",
-              "RelativeToolTip": "Server.Data\\Repositories\\AuthRepository.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAMwBgAAAA5AAAAAAAAAA==",
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Server.Data\\Repositories\\Repository.cs",
+              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\Repositories\\Repository.cs",
+              "RelativeToolTip": "Server.Data\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwA0AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:29:21.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T10:57:19.543Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IAuthRepository.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Core\\Repositories\\IAuthRepository.cs",
-              "RelativeDocumentMoniker": "Server.Core\\Repositories\\IAuthRepository.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Core\\Repositories\\IAuthRepository.cs",
-              "RelativeToolTip": "Server.Core\\Repositories\\IAuthRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAD4vwoAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:29:12.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Core\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Server.Core\\Services\\IAuthService.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Core\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Server.Core\\Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:28:42.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Service\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Server.Service\\Services\\AuthService.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Service\\Services\\AuthService.cs",
-              "RelativeToolTip": "Server.Service\\Services\\AuthService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIAwwBIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:28:36.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ServiceConfiguration.cs",
-              "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\ServiceConfiguration.cs",
-              "RelativeDocumentMoniker": "Server.API\\ServiceConfiguration.cs",
-              "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.API\\ServiceConfiguration.cs",
-              "RelativeToolTip": "Server.API\\ServiceConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:04:59.488Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "DataContext.cs",
               "DocumentMoniker": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\DataContext.cs",
               "RelativeDocumentMoniker": "Server.Data\\DataContext.cs",
               "ToolTip": "D:\\\u05E6\u05D9\u05D1\u05D9 \u05EA\u05DB\u05E0\u05D5\u05EA\\\u05DE\u05D5\u05D2\u05E0\u05D9\u05DD\\Muganim\\Server\\Server.Data\\DataContext.cs",
               "RelativeToolTip": "Server.Data\\DataContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAA4wD8AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:01:53.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T10:22:06.324Z"
             }
           ]
         }
