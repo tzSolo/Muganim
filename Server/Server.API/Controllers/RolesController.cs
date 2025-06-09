@@ -53,8 +53,15 @@ namespace Server.API.Controllers
         {
             var roleMap = _mapper.Map<Role>(role);
             roleMap.Id = id;
-            var updatedRole = _roleService.UpdateEntity(id, roleMap);
-            return Ok(_mapper.Map<RoleDto>(updatedRole));
+            try
+            {
+                var updatedRole = _roleService.UpdateEntity(id, roleMap);
+                return Ok(_mapper.Map<RoleDto>(updatedRole));
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(exe.Message);
+            }
         }
 
         // DELETE api/<RolesController>/5

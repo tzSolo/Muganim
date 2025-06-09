@@ -54,8 +54,15 @@ namespace Server.API.Controllers
         {
             var permissionMap = _mapper.Map<Permission>(permission);
             permissionMap.Id = id;
-            var updatedPermission = _permissionService.UpdateEntity(id, permissionMap);
-            return Ok(_mapper.Map<Permission>(updatedPermission));
+            try
+            {
+                var updatedPermission = _permissionService.UpdateEntity(id, permissionMap);
+                return Ok(_mapper.Map<Permission>(updatedPermission));
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(exe.Message);
+            }
         }
 
         // DELETE api/<PermissionsController>/5

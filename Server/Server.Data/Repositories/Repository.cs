@@ -38,10 +38,19 @@ namespace Server.Data.Repositories
         }
         public T Update(int id, T entity)
         {
-            entity.UpdatedAt = DateTime.Now;
-            entity.UpdatedBy = GetLoggedInUserId();
-            _dbSet.Update(entity);
-            return entity;
+            var existingEntity = GetById(id) ?? throw new KeyNotFoundException($"Entity with id {id} not found.");
+
+            foreach (var property in typeof(T).GetProperties())
+            {
+                if (property.Name != "CreatedBy" && property.Name != "CreatedAt")
+                {
+                    var newValue = property.GetValue(entity);
+                    property.SetValue(existingEntity, newValue);
+                }
+            }
+            existingEntity.UpdatedAt = DateTime.Now;
+            existingEntity.UpdatedBy = GetLoggedInUserId();
+            return existingEntity;
         }
 
         private int GetLoggedInUserId()

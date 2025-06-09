@@ -12,6 +12,9 @@ namespace Server.Core.Repositories
     {
         IRepository<User> Users { get; }
         IRepository<File> Files { get; }
+        IRepository<Permission> Permissions { get; }
+        IRepository<Role> Roles { get; }
+
         void SaveChangesToDB();
     }
 }

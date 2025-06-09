@@ -87,8 +87,15 @@ namespace Server.API.Controllers
         {
             var fileMap = _mapper.Map<File>(file);
             fileMap.Id = id;
-            var updatedFile = _fileService.UpdateEntity(id, fileMap);
-            return Ok(_mapper.Map<FileDto>(updatedFile));
+            try
+            {
+                var updatedFile = _fileService.UpdateEntity(id, fileMap);
+                return Ok(_mapper.Map<FileDto>(updatedFile));
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(exe.Message);
+            }
         }
 
         // DELETE api/<FilesController>/5

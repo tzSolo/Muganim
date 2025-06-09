@@ -9,11 +9,13 @@ using File = Server.Core.Entities.File;
 
 namespace Server.Data.Repositories
 {
-    public class RepositoryManager(DataContext context, IRepository<User> userRepository, IRepository<File> fileRepository) : IRepositoryManager
+    public class RepositoryManager(DataContext context, IRepository<User> userRepository, IRepository<File> fileRepository, IRepository<Permission> permissionRepository, IRepository<Role> roleRepository) : IRepositoryManager
     {
         private readonly DataContext _context = context;
         public IRepository<User> Users { get; } = userRepository;
         public IRepository<File> Files { get; } = fileRepository;
+        public IRepository<Permission> Permissions { get; } = permissionRepository;
+        public IRepository<Role> Roles { get; } = roleRepository;
 
         public void SaveChangesToDB()
         {

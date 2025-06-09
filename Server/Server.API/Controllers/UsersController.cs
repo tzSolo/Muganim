@@ -66,10 +66,15 @@ namespace Server.API.Controllers
         {
             var userMap = _mapper.Map<User>(user);
             userMap.Id = id;
-            var updatedUser = _userService.UpdateEntity(id, userMap);
-            if (updatedUser == null)
-                return BadRequest("The data sent was invalid.");
-            return Ok(_mapper.Map<UserDto>(updatedUser));
+            try
+            {
+                var updatedUser = _userService.UpdateEntity(id, userMap);
+                return Ok(_mapper.Map<UserDto>(updatedUser));
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(exe.Message);
+            }
         }
 
         // DELETE api/<UsersController>/5
