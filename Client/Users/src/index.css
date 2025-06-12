@@ -83,8 +83,17 @@ header nav ul li a:hover {
   display: flex;
   justify-content: center;
 }
-.file p{
-  max-width:550px;
+
+.file p {
+  max-width: 550px;
   line-break: anywhere;
   line-height: 2;
+}
+
+/*    Popups     */
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
