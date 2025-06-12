@@ -36,7 +36,9 @@ const OriginalFile = ({ fileID }: { fileID: number }) => {
         <input type="password" placeholder="password2" onChange={({ target }) => setPasswords([passwords[0], target.value])} />
         <button onClick={decryptContentFile}>Decrypt file</button>
         
-        {file?.content}
+        <div className="file">
+            <p>{file?.content}</p>
+        </div>
     </>
 }
 export default OriginalFile;

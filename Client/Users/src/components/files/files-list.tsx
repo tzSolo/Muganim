@@ -11,7 +11,9 @@ const FilesList = ({ title, subTitle, files }: { title: string, subTitle: string
                 {files.map((file, index) => (
                     <li key={index}>
                         <p>{file.name}</p>
-                        <p>{file.content}</p>
+                        <div className="file">
+                            <p>{file.content}</p>
+                        </div>
                         <OriginalFile {...{ fileID: file.id }} />
                     </li>
                 ))}
