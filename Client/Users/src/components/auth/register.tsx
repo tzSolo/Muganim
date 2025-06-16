@@ -62,21 +62,62 @@ const Register = () => {
     }, []);
 
     const [user, dispatchToUser] = useReducer(changeUserDetails, initialUser);
+
     return <>
-        <form>
-            <input placeholder="Name" onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
-            <input placeholder="Email" onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
-            <input placeholder="Role" list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
-            <datalist id="roles">
-                {
-                    rolesList.map((role) => (
-                        <option key={role.id} value={role.name} />
-                    ))
-                }
-            </datalist>
-            <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
-            <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
-        </form>
+        <div className="auth-container">
+            <form>
+                <div>
+                    <label htmlFor="name">Name</label>
+                    <input
+                        id="name"
+                        onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        id="email"
+                        onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="role">Role</label>
+                    <input
+                        id="role"
+                        list="roles"
+                        onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })}
+                    />
+                    <datalist id="roles">
+                        {
+                            rolesList.map((role) => (
+                                <option key={role.id} value={role.name} />
+                            ))
+                        }
+                    </datalist>
+                </div>
+
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        id="password"
+                        onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })}
+                    />
+                </div>
+
+                <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
+            </form>
+            <div className="description">
+                <h2>Create Your Muganim Account</h2>
+                <p>
+                    Join Muganim to start sharing files securely!
+                    By registering, you’ll be able to upload files to AWS with encryption, ensuring your data is kept safe.
+                    Once your files are uploaded, you can share them with others, and they will receive a password via email to access the files.
+                    Sign up now to enjoy secure file sharing!
+                </p>
+            </div>
+        </div>
     </>
 }
 export default Register;

@@ -114,6 +114,35 @@ header nav ul li a:hover {
   color: var(--third-color);
 }
 
+/*          Main           */
+.auth-container {
+  min-height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-container form {
+  width: 30%;
+}
+
+.auth-container form div {
+  height: 70px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 5px 0;
+}
+
+.description {
+  width: 60%;
+  font-size: 30px;
+  border-left: 3px solid var(--third-color);
+  padding: 0 50px;
+}
+
 /*      Files       */
 .file {
   min-height: 500px;

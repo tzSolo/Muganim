@@ -35,27 +35,43 @@ const Login = () => {
     }
 
     return <>
-        <form>
-            <input
-                autoComplete="on"
-                type="email"
-                placeholder="Email"
-                value={email}
-                id="email"
-                onChange={({ target }) => setEmail(target.value)}
-            />
-            <input
-                autoComplete="on"
-                type="password"
-                placeholder="Password"
-                value={password}
-                id="password"
-                onChange={({ target }) => setPassword(target.value)}
-            />
-            <button disabled={isButtonDisabled} onClick={loginUser}>
-                Login
-            </button>
-        </form>
+        <div className="auth-container">
+            <form>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        autoComplete="on"
+                        type="email"
+                        value={email}
+                        id="email"
+                        onChange={({ target }) => setEmail(target.value)}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        autoComplete="on"
+                        type="password"
+                        value={password}
+                        id="password"
+                        onChange={({ target }) => setPassword(target.value)}
+                    />
+                </div>
+
+                <button disabled={isButtonDisabled} onClick={loginUser}>
+                    Login
+                </button>
+            </form>
+            <div className="description">
+                <h2>Welcome to Muganim</h2>
+                <p>Muganim allows users to upload files securely.
+                    All files are encrypted during the upload process to ensure your data remains private and protected.
+                    Once your files are uploaded, you can easily share them with other users.
+                    The recipients will receive an email containing the password needed to decrypt the files, ensuring that only authorized users can access the content.
+                </p>
+            </div>
+        </div>
     </>
 }
 
