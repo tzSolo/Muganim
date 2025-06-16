@@ -1,10 +1,11 @@
-import { useShowPopup } from "../../hooks/show-popup";
+import { useContext } from "react";
 import { File } from "../../models/File";
 import CenterPopup from "../popups/center-popup";
 import OriginalFile from "./original-file";
+import { popupContext } from "../../contexts/popup-context";
 
 const FilesList = ({ title, subTitle, files }: { title: string, subTitle: string, files: File[] }) => {
-    const { openPopupId, showPopup } = useShowPopup();
+    const { openPopupId, showPopup } = useContext(popupContext);
 
     return <>
         <h2>{title}</h2>

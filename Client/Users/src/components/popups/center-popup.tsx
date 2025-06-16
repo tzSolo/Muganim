@@ -1,14 +1,16 @@
-import { ReactElement } from "react";
-import { useShowPopup } from "../../hooks/show-popup";
+import { ReactElement, useContext } from "react";
+import { popupContext } from "../../contexts/popup-context";
 
 const CenterPopup = ({ children }: { children: ReactElement }) => {
-    
-    const { hidePopup } = useShowPopup();
+
+    const { hidePopup } = useContext(popupContext);
 
     return <>
-        <div className="popup">
-            {children}
-            <button onClick={hidePopup}>Close</button>
+        <div className="overlay">
+            <div className="popup">
+                {children}
+                <button onClick={() => hidePopup()}>Close</button>
+            </div>
         </div>
     </>
 }

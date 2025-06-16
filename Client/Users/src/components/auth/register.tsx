@@ -63,18 +63,20 @@ const Register = () => {
 
     const [user, dispatchToUser] = useReducer(changeUserDetails, initialUser);
     return <>
-        <input placeholder="Name" onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
-        <input placeholder="Email" onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
-        <input placeholder="Role" list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
-        <datalist id="roles">
-            {
-                rolesList.map((role) => (
-                    <option key={role.id} value={role.name} />
-                ))
-            }
-        </datalist>
-        <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
-        <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
+        <form>
+            <input placeholder="Name" onChange={({ target }) => dispatchToUser({ field: "name", value: target.value })} />
+            <input placeholder="Email" onChange={({ target }) => dispatchToUser({ field: "email", value: target.value })} />
+            <input placeholder="Role" list="roles" onChange={({ target }) => dispatchToUser({ field: "roleId", value: target.value })} />
+            <datalist id="roles">
+                {
+                    rolesList.map((role) => (
+                        <option key={role.id} value={role.name} />
+                    ))
+                }
+            </datalist>
+            <input placeholder="Password" onChange={({ target }) => dispatchToUser({ field: "password", value: target.value })} />
+            <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
+        </form>
     </>
 }
 export default Register;

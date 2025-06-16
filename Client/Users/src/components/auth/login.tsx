@@ -34,8 +34,8 @@ const Login = () => {
         }
     }
 
-    return (
-        <>
+    return <>
+        <form>
             <input
                 autoComplete="on"
                 type="email"
@@ -55,8 +55,8 @@ const Login = () => {
             <button disabled={isButtonDisabled} onClick={loginUser}>
                 Login
             </button>
-        </>
-    );
+        </form>
+    </>
 }
 
 export default Login;

@@ -32,10 +32,11 @@ const OriginalFile = ({ fileID }: { fileID: number }) => {
         await decryptContentFileAsync();
     }
     return <>
-        <input type="password" placeholder="password1" onChange={({ target }) => setPasswords([target.value, passwords[1]])} />
-        <input type="password" placeholder="password2" onChange={({ target }) => setPasswords([passwords[0], target.value])} />
-        <button onClick={decryptContentFile}>Decrypt file</button>
-        
+        <div>
+            <input type="password" placeholder="password1" onChange={({ target }) => setPasswords([target.value, passwords[1]])} />
+            <input type="password" placeholder="password2" onChange={({ target }) => setPasswords([passwords[0], target.value])} />
+            <button onClick={decryptContentFile}>Decrypt file</button>
+        </div>
         <div className="file">
             <p>{file?.content}</p>
         </div>
