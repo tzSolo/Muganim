@@ -37,15 +37,19 @@ const Login = () => {
     return (
         <>
             <input
+                autoComplete="on"
                 type="email"
                 placeholder="Email"
                 value={email}
+                id="email"
                 onChange={({ target }) => setEmail(target.value)}
             />
             <input
+                autoComplete="on"
                 type="password"
                 placeholder="Password"
                 value={password}
+                id="password"
                 onChange={({ target }) => setPassword(target.value)}
             />
             <button disabled={isButtonDisabled} onClick={loginUser}>

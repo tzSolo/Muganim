@@ -17,12 +17,17 @@ const Header = () => {
 
     return <>
         <header>
-            <img src={logo.default} alt="muganim logo" />
-            <nav>
-                <ul>
-                    {userState.state === "not logged in" ? <AuthNav /> : <MyWorkspace />}
-                </ul>
-            </nav>
+            <div className="container">
+                <img src={logo.default} alt="muganim logo" />
+                <nav>
+                    <ul>
+                        {userState.state === "not logged in" ? <AuthNav /> : <MyWorkspace />}
+                    </ul>
+                </nav>
+                <div id="humburger">
+                    <div></div>
+                </div>
+            </div>
         </header>
     </>
 }

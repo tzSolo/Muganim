@@ -1,0 +1,69 @@
+@media (min-width:576px) {
+    header nav {
+        display: block;
+    }
+
+    #humburger {
+        display: none;
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        max-width: 720px
+    }
+
+    header nav {
+        width: 85%;
+    }
+
+    header nav ul {
+        font-size: 22px;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        max-width: 960px
+    }
+
+    header nav ul {
+        font-size: 25px;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        max-width: 1140px
+    }
+
+    header nav ul {
+        font-size: 28px;
+    }
+
+    header nav ul li {
+        padding: 8px 10px;
+    }
+}
+
+@media (min-width:1400px) {
+    .container {
+        max-width: 1320px
+    }
+
+    header nav {
+        width: 70%;
+    }
+
+    header nav ul {
+        font-size: 30px;
+    }
+
+    header nav ul li {
+        padding: 8px 20px;
+    }
+}
