@@ -109,7 +109,7 @@ const Register = () => {
                 <button disabled={isButtonDisabled} onClick={() => registerNewUser(user)}>Register me</button>
             </form>
             <div className="description">
-                <h2>Create Your Muganim Account</h2>
+                <h2>Create Your <span>Muganim Account</span></h2>
                 <p>
                     Join Muganim to start sharing files securely!
                     By registering, you’ll be able to upload files to AWS with encryption, ensuring your data is kept safe.
