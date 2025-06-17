@@ -4,3 +4,10 @@ export interface UserPost {
     password: string,
     roleId: string
 }
+
+export const initialUser: UserPost = {
+    name: "",
+    email: "",
+    password: "",
+    roleId: ""
+};

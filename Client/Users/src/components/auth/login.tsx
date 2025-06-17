@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { apiContext } from "../../contexts/api-context";
 import { useSaveUserDetails } from "../../hooks/save-user-details";
+import { useFormHandler } from "../../hooks/form-handler";
 
 const Login = () => {
     const { url } = useContext(apiContext);
     const { saveUserDetails } = useSaveUserDetails();
+    const { handleSubmit } = useFormHandler();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -36,7 +38,7 @@ const Login = () => {
 
     return <>
         <div className="auth-container">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email">Email</label>
                     <input

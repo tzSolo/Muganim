@@ -75,20 +75,30 @@ const UploadFileToAWS = () => {
     }, []);
 
     return <>
-        <input
-            type="file"
-            onChange={({ target }) => setFiles(target.files)}
-        />
-        <input
-            type="email"
-            value={email}
-            placeholder="Enter email to share"
-            onChange={({ target }) => setEmail(target.value)}
-        />
-        <button onClick={handleAddUser}>Add User</button>
-        <small>{message}</small>
+        <h2>Upload File</h2>
+        <form className="upload-file-form">
+            <div>
+                <label htmlFor="file-upload" className="custom-upload-file">Choose File</label>
+                <input
+                    id="file-upload"
+                    type="file"
+                    onChange={({ target }) => setFiles(target.files)}
+                />
+                {files && <small>{files[0].name}</small>}
+            </div>
+            <div>
+                <input
+                    type="email"
+                    value={email}
+                    placeholder="Enter email to share"
+                    onChange={({ target }) => setEmail(target.value)}
+                />
+                <button onClick={handleAddUser}>Add User</button>
+                <small>{message}</small>
+            </div>
 
-        <button onClick={uploadFile}>Upload File</button>
+            <button onClick={uploadFile}>Upload File</button>
+        </form>
     </>
 }
 export default UploadFileToAWS;

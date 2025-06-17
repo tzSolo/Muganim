@@ -2,11 +2,13 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { UserPost } from "../../models/user.post";
 import { apiContext } from "../../contexts/api-context";
 import { useSaveUserDetails } from "../../hooks/save-user-details";
+import { useFormHandler } from "../../hooks/form-handler";
 
 const Register = () => {
     const { url } = useContext(apiContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
     const { saveUserDetails } = useSaveUserDetails();
+    const { handleSubmit } = useFormHandler();
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const getListOfRoles = async () => {
@@ -65,7 +67,7 @@ const Register = () => {
 
     return <>
         <div className="auth-container">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name</label>
                     <input
