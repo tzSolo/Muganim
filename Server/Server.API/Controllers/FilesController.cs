@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Server.API.Models;
 using Server.Core;
 using Server.Core.DTOs;
+using Server.Core.Entities;
 using Server.Core.Services;
 using Server.Service.Services;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using File = Server.Core.Entities.File;
 
@@ -14,12 +16,13 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IEmailService emailService, IMapper mapper) : ControllerBase
+    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IEmailService emailService, IService<User> userService, IMapper mapper) : ControllerBase
     {
         private readonly IService<File> _fileService = fileService;
         private readonly IEncryptService _encryptService = encryptService;
         private readonly IFileUploadService _uploadService = uploadService;
         private readonly IEmailService _emailService = emailService;
+        private readonly IService<User> _userService = userService;
         private readonly IMapper _mapper = mapper;
 
         // GET: api/<FilesController>
@@ -64,10 +67,32 @@ namespace Server.API.Controllers
             fileMap.Name = encryptFileName;
             fileMap.Content = encryptFileContent;
             var newFile = _fileService.AddEntity(fileMap);
+            var fileOwner = _userService.GetEntityById(fileMap.CreatedBy);
+            var recipients = new List<User> { fileOwner };
+            recipients.AddRange(fileMap.SharedWith);
 
-            foreach (var user in fileMap.SharedWith)
+            foreach (var user in recipients)
             {
-                await _emailService.SendEmailAsync(user.Email, "Muganim password", $"The password is : {password[0]} + {password[1]}");
+                try
+                {
+                    await _emailService.SendEmailAsync(
+                      user.Email,
+                      "Decryption Credentials for File",
+                      $"Dear {user.Name},\n\n" +
+                      "Below are the credentials required to decrypt the file:\n\n" +
+                      $"File Name: {encryptFileName}\n" +
+                      "Decryption Passwords:\n\n" +
+                      $"Password 1: {password[0]}\n" +
+                      $"Password 2: {password[1]}\n\n" +
+                      "Please ensure you keep this information secure and do not share it with anyone.\n\n" +
+                      "Best regards,\n" +
+                      "Muganim Team"
+                    );
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest($"Failed to send email to {user.Email}: {ex.Message}");
+                }
             }
 
             try

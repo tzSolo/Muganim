@@ -12,8 +12,8 @@ using Server.Data;
 namespace Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250603120032_ChangeFilesAndSharedFilesNames")]
-    partial class ChangeFilesAndSharedFilesNames
+    [Migration("20250622134959_CreateMuganimDB")]
+    partial class CreateMuganimDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

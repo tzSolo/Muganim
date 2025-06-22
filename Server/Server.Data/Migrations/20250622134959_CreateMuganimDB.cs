@@ -97,7 +97,7 @@ namespace Server.Data.Migrations
                     Email = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RoleId = table.Column<int>(type: "int", nullable: false),
-                    SharedFiles = table.Column<string>(type: "longtext", nullable: true)
+                    Files = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
@@ -120,15 +120,15 @@ namespace Server.Data.Migrations
                 name: "FileUser",
                 columns: table => new
                 {
-                    FilesId = table.Column<int>(type: "int", nullable: false),
+                    SharedFilesId = table.Column<int>(type: "int", nullable: false),
                     SharedWithId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileUser", x => new { x.FilesId, x.SharedWithId });
+                    table.PrimaryKey("PK_FileUser", x => new { x.SharedFilesId, x.SharedWithId });
                     table.ForeignKey(
-                        name: "FK_FileUser_Files_FilesId",
-                        column: x => x.FilesId,
+                        name: "FK_FileUser_Files_SharedFilesId",
+                        column: x => x.SharedFilesId,
                         principalTable: "Files",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
