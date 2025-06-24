@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { apiContext } from "../../contexts/api-context";
 import { useSaveUserDetails } from "../../hooks/save-user-details";
 import { useFormHandler } from "../../hooks/form-handler";
+import { useWakeServer } from "../../hooks/wake-server";
 
 const Login = () => {
     const { url } = useContext(apiContext);
     const { saveUserDetails } = useSaveUserDetails();
     const { handleSubmit } = useFormHandler();
+    const { } = useWakeServer();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);

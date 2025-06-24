@@ -3,12 +3,14 @@ import { UserPost } from "../../models/user.post";
 import { apiContext } from "../../contexts/api-context";
 import { useSaveUserDetails } from "../../hooks/save-user-details";
 import { useFormHandler } from "../../hooks/form-handler";
+import { useWakeServer } from "../../hooks/wake-server";
 
 const Register = () => {
     const { url } = useContext(apiContext);
     const [rolesList, setRolesList] = useState<any[]>([]);
     const { saveUserDetails } = useSaveUserDetails();
     const { handleSubmit } = useFormHandler();
+    const { } = useWakeServer();
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const getListOfRoles = async () => {
