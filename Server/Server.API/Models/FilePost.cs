@@ -4,6 +4,6 @@
     {
         public string Name { get; set; }
         public string Content { get; set; }
-        public List<UserPost> SharedWith { get; set; }
+        public List<int> SharedWithIds { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Server.API.Models;
 using Server.Core;
 using Server.Core.DTOs;
 using Server.Core.Entities;
 using Server.Core.Services;
+using Server.Data;
 using Server.Service.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace Server.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IEmailService emailService, IService<User> userService, IMapper mapper) : ControllerBase
+    public class FilesController(IService<File> fileService, IEncryptService encryptService, IFileUploadService uploadService, IEmailService emailService, IService<User> userService, IMapper mapper, DataContext context) : ControllerBase
     {
         private readonly IService<File> _fileService = fileService;
         private readonly IEncryptService _encryptService = encryptService;
@@ -24,6 +26,7 @@ namespace Server.API.Controllers
         private readonly IEmailService _emailService = emailService;
         private readonly IService<User> _userService = userService;
         private readonly IMapper _mapper = mapper;
+        private readonly DataContext _context = context;
 
         // GET: api/<FilesController>
         [HttpGet]
@@ -67,9 +70,18 @@ namespace Server.API.Controllers
             fileMap.Name = encryptFileName;
             fileMap.Content = encryptFileContent;
             var newFile = _fileService.AddEntity(fileMap);
-            var fileOwner = _userService.GetEntityById(fileMap.CreatedBy);
-            var recipients = new List<User> { fileOwner };
-            recipients.AddRange(fileMap.SharedWith);
+            var recipientsIds = new List<int> { fileMap.CreatedBy };
+            recipientsIds.AddRange(fileMap.SharedWithIds);
+
+            var recipients = new List<User>();
+            foreach (var userId in recipientsIds)
+            {
+                var user = _userService.GetEntityById(userId);
+                if (user != null)
+                {
+                    recipients.Add(user);
+                }
+            }
 
             foreach (var user in recipients)
             {
