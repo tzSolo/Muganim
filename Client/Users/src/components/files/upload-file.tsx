@@ -1,17 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { apiContext } from "../../contexts/api-context";
 import { userContext } from "../../contexts/user-context";
-import { UserPost } from "../../models/user.post";
+import { useFormHandler } from "../../hooks/form-handler";
+import { User } from "../../models/user";
 
 
 const UploadFileToAWS = () => {
-    const [allUsers, setAllUsers] = useState<UserPost[]>([]);
+    const [allUsers, setAllUsers] = useState<User[]>([]);
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
     const [files, setFiles] = useState<FileList | null>(null);
-    const [sharedWith, setSharedWith] = useState<UserPost[]>([]);
+    const [sharedWithIds, setSharedWithIds] = useState<number[]>([]);
     const { url } = useContext(apiContext);
     const { userState } = useContext(userContext);
+    const { handleSubmit } = useFormHandler()
 
     const uploadFile = async () => {
         if (files) {
@@ -25,7 +27,7 @@ const UploadFileToAWS = () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${userState.token}`
                     },
-                    body: JSON.stringify({ name, content, sharedWith })
+                    body: JSON.stringify({ name, content, sharedWithIds })
                 });
                 if (!response.ok) {
                     throw new Error(`Error, status code : ${response.status}`);
@@ -57,7 +59,7 @@ const UploadFileToAWS = () => {
         const existUser = allUsers.find(u => u.email === email);
 
         if (existUser) {
-            setSharedWith([...sharedWith, existUser]);
+            setSharedWithIds([...sharedWithIds, existUser.id]);
             setEmail("");
             setMessage("User added successfully.");
         }
@@ -76,7 +78,7 @@ const UploadFileToAWS = () => {
 
     return <>
         <h2>Upload File</h2>
-        <form className="upload-file-form">
+        <form className="upload-file-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="file-upload" className="custom-upload-file">Choose File</label>
                 <input

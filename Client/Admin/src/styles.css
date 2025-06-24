@@ -1,28 +1,4 @@
-:root {
-    --first-color: #d99d19;
-    --second-color: white;
-    --third-color: rgb(6, 91, 115);
-    font-family: "Calibri";
-}
-
-::selection {
-    background-color: #d99c1990;
-}
-
-body {
-    margin: 0;
-}
-
-.container{
-    display: flex;
-    width: fit-content;
-    margin: 0 auto;
-}
-
-button{
-    background-color: var(--third-color);
-    border: 1px solid var(--first-color);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: var(--first-color);
-}
+@import url(../../Shared-Styles/general.css);
+@import url(../../Shared-Styles/header.css);
+@import url(../../Shared-Styles/main.css);
+@import url(../../Shared-Styles/responsive.css);

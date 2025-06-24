@@ -8,8 +8,7 @@ import { UserPost } from '../models/user-post.model';
   providedIn: 'root'
 })
 export class UserService {
-  // private readonly Url = 'https://server-muganim.onrender.com/api/Users';
-  private readonly Url = 'http://localhost:5208/api/Users';
+  private readonly Url = 'https://server-muganim.onrender.com/api/Users';
 
   constructor(private httpClient: HttpClient) { }
 

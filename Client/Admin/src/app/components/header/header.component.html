@@ -1,21 +1,27 @@
-<nav>
-    <ul>
-        <!-- כשהמשתמש מתחבר -->
-
-        <li>
-            <a routerLink="/">Home</a>
-        </li>
-        @if(false){
-        <li>
-            <a routerLink="/login">Log In</a>
-        </li>}
-        @else {
-        <li>
-            <a routerLink="/manage-users">Users</a>
-        </li>
-        <li>
-            <a routerLink="/manage-files">Files</a>
-        </li>
-        }
-    </ul>
-</nav>
+<header>
+    <div class="container">
+        <img src="logo.png" alt="muganim logo">
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="/">Home</a>
+                </li>
+                @if(false){
+                <li>
+                    <a routerLink="/login">Log In</a>
+                </li>}
+                @else {
+                <li>
+                    <a routerLink="/manage-users">Users</a>
+                </li>
+                <li>
+                    <a routerLink="/manage-files">Files</a>
+                </li>
+                }
+            </ul>
+        </nav>
+        <div id="humburger">
+            <div></div>
+        </div>
+    </div>
+</header>
