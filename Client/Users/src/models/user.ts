@@ -1,11 +1,8 @@
-import { File } from "./File";
-
-
 export interface User {
     id: number,
     name: string,
     email: string,
-    sharedFiles: File[],
+    sharedFiles: number[],
     accessPermissions: string,
     files: number[],
     createdAt: Date,
