@@ -16,10 +16,5 @@ namespace Server.Data.Repositories
         {
             return _dbSet.FirstOrDefault(u => u.Email == email && u.Password == password);
         }
-
-        public override User? GetById(int id)
-        {
-            return _dbSet.Include(u => u.SharedFiles).FirstOrDefault(u => u.Id == id);
-        }
     }
 }

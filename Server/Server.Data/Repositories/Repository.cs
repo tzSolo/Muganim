@@ -32,7 +32,7 @@ namespace Server.Data.Repositories
         {
             return _dbSet;
         }
-        public virtual T? GetById(int id)
+        public T? GetById(int id)
         {
             return _dbSet.Find(id);
         }
